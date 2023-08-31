@@ -21,5 +21,5 @@ P.S If you don't want or cannot use upscaler, just drag all the textures from re
 For the first time, all of the steps may take a while, if you have a high quality textures or alot of them, you need to wait, then the process will be faster.
 Good luck! :)
 
-This project is possible because my boss gave me a RTX gpu, and allowed to work on this in office some time, so, i'll be glad if you check his website, thanks!
+This project is possible because my boss gave me an RTX gpu, and allowed me to work on this project in office some time, so, i'll be glad if you check his website, thanks!
 https://fst.kz/
