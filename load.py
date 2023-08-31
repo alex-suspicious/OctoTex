@@ -8,6 +8,14 @@ import pathlib
 loadDirId = 0
 loadDir = "captures"
 
+neededDirectories = ["textures","textures/processing","textures/processing/upscaled","textures/processing/roughness","textures/processing/normals","textures/processing/metallness","textures/processing/emission","textures/processing/diffuse"]
+
+
+for directory in neededDirectories:
+    isExist = os.path.exists(directory)
+    if not isExist:
+        os.makedirs(directory)
+
 mods = [f for f in pathlib.Path().glob("../rtx-remix/mods/*")]
 if( len(mods) > 0 ):
     print("Directories for importing: ")
