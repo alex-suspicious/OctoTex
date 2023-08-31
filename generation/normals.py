@@ -4,6 +4,7 @@ from matplotlib import pyplot
 from PIL import Image, ImageOps, ImageEnhance
 import os
 import sys
+import config
 sys.path
 sys.path.append('./nvidia')
 from octahedral import *
@@ -85,3 +86,22 @@ def generate_normal(input_file, output_file,smoothness,intensity):
     sobel_x, sobel_y = sobel(im_smooth)
     normal_map = compute_normal_map(sobel_x, sobel_y, intensity)
     pyplot.imsave(output_file,LightspeedOctahedralConverter.convert_dx_to_octahedral( (normal_map * 255).astype('uint8') ))
+
+    im = Image.open(input_file)
+    im_output = Image.open(output_file)
+
+    if( config.alpha_as_transparency ):
+        r, g, b, a = im.split()
+        alpha_image = Image.new("L", im.size)
+        alpha_image.putdata(a.getdata())
+
+        coordinates = x, y = 0, 0
+        alpha = alpha_image.getpixel( coordinates )
+        if( alpha > 5 ):
+            alpha_image = ImageOps.invert(alpha_image)
+            normal_face_forward = Image.new('RGB',im.size,(127,128,0))
+            normal_face_forward.putalpha(alpha_image)
+
+            im_output = Image.alpha_composite(im_output, normal_face_forward)
+
+    im_output.save(output_file)
