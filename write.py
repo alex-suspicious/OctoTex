@@ -1,4 +1,3 @@
-from wand import image
 import os
 from tqdm import tqdm
 import config
@@ -112,7 +111,7 @@ for x in tqdm( os.listdir("textures/processing/upscaled/"), desc="Converting..."
         try:
             already = hasherObj.saved(f"textures/processing/upscaled/{x}")
             if( not already ):
-                with image.Image(filename=f"textures/processing/upscaled/{x}") as img:
+                with Image.open(filename=f"textures/processing/upscaled/{x}") as img:
                     img.compression = "dxt5"
                     img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/diffuse/{x.replace('png','dds')}")
                     hasherObj.add_saved(f"textures/processing/upscaled/{x}")

@@ -1,4 +1,4 @@
-from wand import image
+from PIL import Image
 import os
 from tqdm import tqdm
 import config
@@ -33,12 +33,12 @@ for x in tqdm( os.listdir(f"{config.rtx_remix_dir}/{loadDir}/"), desc="Convertin
             continue
 
         try:
-            with image.Image(filename=f"{config.rtx_remix_dir}/{loadDir}/{x}") as img:
+            with Image.open(f"{config.rtx_remix_dir}/{loadDir}/{x}") as img:
                 img.compression = "dxt5"
             
-                img.save(filename=f"textures/processing/diffuse/{x.replace('dds','png')}")
+                img.save(f"textures/processing/diffuse/{x.replace('dds','png')}")
                 hasherObj.add_loaded(f"textures/processing/diffuse/{x.replace('dds','png')}")
         except Exception as e:
-            pass
+            print(e)
 
 hasherObj.saveJson()
