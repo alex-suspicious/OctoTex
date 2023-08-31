@@ -112,30 +112,30 @@ for x in tqdm( os.listdir("textures/processing/upscaled/"), desc="Converting..."
         try:
             already = hasherObj.saved(f"textures/processing/upscaled/{x}")
             if( not already ):
-                with Image.open(filename=f"textures/processing/upscaled/{x}") as img:
-                    img.compression = "dxt5"
-                    img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/diffuse/{x.replace('png','dds')}")
+                with Image.open(f"textures/processing/upscaled/{x}") as img:
+                    #img.compression = "dxt5"
+                    img.save(f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/diffuse/{x.replace('png','dds')}")
                     hasherObj.add_saved(f"textures/processing/upscaled/{x}")
 
             already = hasherObj.saved(f"textures/processing/metallness/{x.replace('.png','')}_metal.png")
             if( not already ):
-                with image.Image(filename=f"textures/processing/metallness/{x.replace('.png','')}_metal.png") as img:
-                    img.compression = "dxt5"
-                    img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/metallness/{x.replace('png','dds')}")
+                with Image.open(f"textures/processing/metallness/{x.replace('.png','')}_metal.png") as img:
+                    #img.compression = "dxt5"
+                    img.save(f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/metallness/{x.replace('png','dds')}")
                     hasherObj.add_saved(f"textures/processing/metallness/{x.replace('.png','')}_metal.png")
-
+                
             already = hasherObj.saved(f"textures/processing/normals/{x.replace('.png','')}_normal.png")
             if( not already ):
-                with image.Image(filename=f"textures/processing/normals/{x.replace('.png','')}_normal.png") as img:
-                    img.compression = "dxt5"
-                    img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/normals/{x.replace('png','dds')}")
+                with Image.open(f"textures/processing/normals/{x.replace('.png','')}_normal.png") as img:
+                    #img.compression = "dxt5"
+                    img.save(f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/normals/{x.replace('png','dds')}")
                     hasherObj.add_saved(f"textures/processing/normals/{x.replace('.png','')}_normal.png")
 
             already = hasherObj.saved(f"textures/processing/roughness/{x.replace('.png','')}_rough.png")
             if( not already ):
-                with image.Image(filename=f"textures/processing/roughness/{x.replace('.png','')}_rough.png") as img:
-                    img.compression = "dxt5"
-                    img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/roughness/{x.replace('png','dds')}")
+                with Image.open(f"textures/processing/roughness/{x.replace('.png','')}_rough.png") as img:
+                    #img.compression = "dxt5"
+                    img.save(f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/roughness/{x.replace('png','dds')}")
                     hasherObj.add_saved(f"textures/processing/roughness/{x.replace('.png','')}_rough.png")
 
             add_mat = example_mat.replace("$filename$",x.replace('.png',''))
