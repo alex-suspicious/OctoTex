@@ -3,7 +3,7 @@ from tqdm import tqdm
 import config
 from hash.hasher import *
 from mods.controller import *
-from wand.image import Image
+from PIL import Image
 
 
 replacements = """
