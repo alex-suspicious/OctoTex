@@ -4,7 +4,7 @@ from PIL import Image, ImageOps, ImageEnhance, ImageChops
 
 def generate_roughness(input_file, output_file,intensity):
     im = Image.open(input_file)
-
+    
     if( config.alpha_as_transparency ):
         r, g, b, a = im.split()
         alpha_image = Image.new("L", im.size)

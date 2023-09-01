@@ -1,6 +1,8 @@
 import pathlib
 import config
 import json
+import os
+from zipfile import ZipFile
 
 def modFolder():
 	mods = [f for f in pathlib.Path().glob("../rtx-remix/mods/*")]
@@ -10,22 +12,42 @@ def modFolder():
 		return
 
 	for x in range(len(mods)):
-		mod_path = str(mods[x]).replace("../rtx-remix/mods/","")
+		mod_path = str(mods[x]).replace("../rtx-remix/mods/","").replace("..\\rtx-remix\\mods\\","")
 		print(f"{x} | {mod_path}")
 
-	dirId = 0
-	dirId = int(input("Select the mod that you want to write by index: "))
-
-	mod_dir = mods[dirId]
-	print(f"Selected mod: {str(mod_dir).replace('../rtx-remix/mods/','')}")
-
+	print(f"c | create new mod")
+	
 	jsonFile = open("mods/saved.json","r")
 	jsonData = jsonFile.read()
 	jsonFile.close()
 	savedMods = json.loads(jsonData)
 
-	returnModDir = str(mod_dir).replace('../rtx-remix/mods/','')
-	config.selected_mod = str(mod_dir).replace('../rtx-remix/mods/','')
+	dirId = 0
+	dirId = input("Select the mod that you want to write by index: ")
+	if( dirId == "c" ):
+		modName = input("\nWrite a mod name: ")
+		with ZipFile("mods/modTemplate.zip", 'r') as zObject:
+			zObject.extractall( path=f"{config.rtx_remix_dir}/mods/")
+
+		os.rename(f"{config.rtx_remix_dir}/mods/modTemplate", f"{config.rtx_remix_dir}/mods/{modName}")
+
+		savedMods[modName] = "replacements.usda"
+		
+		jsonData = json.dumps( savedMods )
+
+		jsonFile = open("mods/saved.json","w")
+		jsonFile.write(jsonData)
+		jsonFile.close()
+
+		return modName, "replacements.usda"
+
+	mod_dir = mods[int(dirId)]
+	print("Selected mod: " + str(mod_dir).replace('../rtx-remix/mods/','').replace("..\\rtx-remix\\mods\\","") ) 
+
+
+
+	returnModDir = str(mod_dir).replace('../rtx-remix/mods/','').replace("..\\rtx-remix\\mods\\","")
+	config.selected_mod = str(mod_dir).replace('../rtx-remix/mods/','').replace("..\\rtx-remix\\mods\\","")
 
 	if( returnModDir in savedMods ):
 		return returnModDir, savedMods[returnModDir]
@@ -41,7 +63,7 @@ def modFolder():
 	repId = int(input("Select the replacements file that you want to write by index: "))
 	replacement_file = replacements[repId]
 	
-	returnConfigName = str(replacement_file).replace(f'../rtx-remix/mods/{returnModDir}','')
+	returnConfigName = str(replacement_file).replace(f'../rtx-remix/mods/{returnModDir}','').replace(f'..\\rtx-remix\\mods\\{returnModDir}','')
 	savedMods[returnModDir] = returnConfigName
 	
 	jsonData = json.dumps( savedMods )
