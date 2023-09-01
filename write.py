@@ -5,6 +5,7 @@ from hash.hasher import *
 from mods.controller import *
 from PIL import Image
 
+
 replacements = """
 #usda 1.0
 (
@@ -125,6 +126,7 @@ for x in tqdm( os.listdir("textures/processing/upscaled/"), desc="Converting..."
                     hasherObj.add_saved(f"{mod_dir}/textures/processing/metallness/{x.replace('.png','')}_metal.png")
 
             already = hasherObj.saved(f"{mod_dir}/textures/processing/normals/{x.replace('.png','')}_normal.png")
+
             if( not already ):
                 with Image.open(f"textures/processing/normals/{x.replace('.png','')}_normal.png") as img:
                     #img.compression = "dxt5"
