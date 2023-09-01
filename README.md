@@ -1,3 +1,4 @@
+![logo](https://i.imgur.com/j2Bkzk8.png)
 # OctoTex
 This tool is heavily experimental!
 
