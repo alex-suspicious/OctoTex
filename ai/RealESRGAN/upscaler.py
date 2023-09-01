@@ -18,7 +18,7 @@ def upscaleAll():
     model = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=4)
 
     model_path = config.upscale_model
-    denoise_strength = 0.7
+    denoise_strength = 0.8
 
     dni_weight = None
     upsampler = RealESRGANer(
@@ -29,7 +29,7 @@ def upscaleAll():
         tile=0,
         tile_pad=10,
         pre_pad=0,
-        half=1,
+        half=True,
         gpu_id=0)
 
     files = "textures/processing/diffuse/"
@@ -56,6 +56,8 @@ def upscaleAll():
         except RuntimeError as error:
             print('Error', error)
             print('If you encounter CUDA out of memory, try to set --tile with a smaller number.')
+        except Exception as e:
+            print(e)
         else:
             extension = extension[1:]
             if img_mode == 'RGBA':
