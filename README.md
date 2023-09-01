@@ -1,4 +1,5 @@
-![logo](https://i.imgur.com/j2Bkzk8.png)
+<img src="https://i.imgur.com/U40OgUz.png" alt="logo" width="250px" height="250px">
+
 # OctoTex
 This tool is heavily experimental!
 
