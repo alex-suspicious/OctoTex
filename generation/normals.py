@@ -90,7 +90,7 @@ def generate_normal(input_file, output_file,smoothness,intensity):
     im = Image.open(input_file)
     im_output = Image.open(output_file)
 
-    if( config.alpha_as_transparency ):
+    if( config.transparency_as_reflectivity ):
         r, g, b, a = im.split()
         alpha_image = Image.new("L", im.size)
         alpha_image.putdata(a.getdata())

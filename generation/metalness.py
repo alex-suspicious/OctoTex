@@ -5,7 +5,7 @@ from PIL import Image, ImageOps, ImageEnhance, ImageChops
 def generate_metalness(input_file, output_file,intensity):
     im = Image.open(input_file)
 
-    if( config.alpha_as_transparency ):
+    if( config.transparency_as_reflectivity ):
         r, g, b, a = im.split()
         alpha_image = Image.new("L", im.size)
         alpha_image.putdata(a.getdata())
@@ -21,7 +21,7 @@ def generate_metalness(input_file, output_file,intensity):
     factor = 0.8
     im_output = enhancer.enhance(factor)
 
-    if( config.alpha_as_transparency ):
+    if( config.transparency_as_reflectivity ):
         coordinates = x, y = 0, 0
         alpha = alpha_image.getpixel( coordinates )
         if( alpha > 2 ):
