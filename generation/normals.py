@@ -97,7 +97,7 @@ def generate_normal(input_file, output_file,smoothness,intensity):
 
         coordinates = x, y = 0, 0
         alpha = alpha_image.getpixel( coordinates )
-        if( alpha > 5 ):
+        if( alpha > 2 ):
             alpha_image = ImageOps.invert(alpha_image)
             normal_face_forward = Image.new('RGB',im.size,(127,128,0))
             normal_face_forward.putalpha(alpha_image)

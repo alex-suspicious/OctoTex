@@ -47,6 +47,8 @@ for x in tqdm( os.listdir(f"{config.rtx_remix_dir}/{loadDir}/"), desc="Convertin
                 img.save(f"textures/processing/diffuse/{x.replace('dds','png')}")
                 hasherObj.add_loaded(f"textures/processing/diffuse/{x.replace('dds','png')}")
         except Exception as e:
-            print(e)
+            f = open("logs", "a")
+            f.write( "\n"+str(e) )
+            f.close()
 
 hasherObj.saveJson()
