@@ -8,7 +8,7 @@ import pathlib
 loadDirId = 0
 loadDir = "captures"
 
-neededDirectories = ["textures","textures/processing","textures/processing/upscaled","textures/processing/roughness","textures/processing/normals","textures/processing/metallness","textures/processing/emission","textures/processing/diffuse"]
+neededDirectories = ["textures","textures/processing","textures/processing/upscaled","textures/processing/roughness","textures/processing/normals","textures/processing/metallness","textures/processing/emission","textures/processing/diffuse",f"{config.rtx_remix_dir}/mods"]
 
 
 for directory in neededDirectories:
@@ -16,20 +16,20 @@ for directory in neededDirectories:
     if not isExist:
         os.makedirs(directory)
 
-mods = [f for f in pathlib.Path().glob("../rtx-remix/mods/*")]
+mods = [f for f in pathlib.Path().glob(f"{config.rtx_remix_dir}/mods/*")]
 if( len(mods) > 0 ):
     print("Directories for importing: ")
 
     print("0 | captures")
     for x in range(len(mods)):
-        mod_path = str(mods[x]).replace("../rtx-remix/mods/","")
+        mod_path = str(mods[x]).replace(f"{config.rtx_remix_dir}/mods/","")
         print(f"{x+1} | {mod_path}")
 
 
     loadDirId = int(input("From what dir you want to load the textures, select by index: "))
     loadDirId -= 1
     if( loadDirId != -1 ):
-        loadDir = str(mods[loadDirId]).replace("../rtx-remix/","") + "/SubUSDs/textures/diffuse"
+        loadDir = str(mods[loadDirId]).replace(f"{config.rtx_remix_dir}/","") + "/SubUSDs/textures/diffuse"
     else:
         loadDir += "/textures"
 

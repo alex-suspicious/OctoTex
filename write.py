@@ -119,7 +119,6 @@ for x in tqdm( os.listdir("textures/processing/upscaled/"), desc="Converting..."
             already = hasherObj.saved(f"{mod_dir}/textures/processing/metallness/{x.replace('.png','')}_metal.png")
             if( not already ):
                 with image.Image(filename=f"textures/processing/metallness/{x.replace('.png','')}_metal.png") as img:
-                    img = img.convert('RGBA')
                     img.compression = "dxt5"
                     img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/metallness/{x.replace('png','dds')}")
                     hasherObj.add_saved(f"{mod_dir}/textures/processing/metallness/{x.replace('.png','')}_metal.png")
@@ -134,7 +133,6 @@ for x in tqdm( os.listdir("textures/processing/upscaled/"), desc="Converting..."
             already = hasherObj.saved(f"{mod_dir}/textures/processing/roughness/{x.replace('.png','')}_rough.png")
             if( not already ):
                 with image.Image(filename=f"textures/processing/roughness/{x.replace('.png','')}_rough.png") as img:
-                    img = img.convert('RGBA')
                     img.compression = "dxt5"
                     img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/roughness/{x.replace('png','dds')}")
                     hasherObj.add_saved(f"{mod_dir}/textures/processing/roughness/{x.replace('.png','')}_rough.png")
