@@ -8,12 +8,10 @@ def modFolder():
 	mods = [f for f in pathlib.Path().glob("../rtx-remix/mods/*")]
 	if( len(mods) > 0 ):
 		print("Here's your mods:")
-	else:
-		return
+		for x in range(len(mods)):
+			mod_path = str(mods[x]).replace("../rtx-remix/mods/","").replace("..\\rtx-remix\\mods\\","")
+			print(f"{x} | {mod_path}")
 
-	for x in range(len(mods)):
-		mod_path = str(mods[x]).replace("../rtx-remix/mods/","").replace("..\\rtx-remix\\mods\\","")
-		print(f"{x} | {mod_path}")
 
 	print(f"c | create new mod")
 	
