@@ -32,6 +32,8 @@ if( len(mods) > 0 ):
         loadDir = str(mods[loadDirId]).replace(f"{config.rtx_remix_dir}/","") + "/SubUSDs/textures/diffuse"
     else:
         loadDir += "/textures"
+else:
+    loadDir += "/textures"
 
 hasherObj = hasher()
 for x in tqdm( os.listdir(f"{config.rtx_remix_dir}/{loadDir}/"), desc="Converting..." ):
