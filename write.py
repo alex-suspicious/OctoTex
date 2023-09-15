@@ -98,75 +98,81 @@ example_mat = """$filename$"
         }
 """
 
+def saveAllTextures(mod_dir, replacements_file):
+    replacements_file = replacements_file.replace("/","")
 
-mod_dir, replacements_file = modFolder()
+    #allMaterials = []
+    pr = open(f"{config.rtx_remix_dir}/mods/{mod_dir}/{replacements_file}", "r")
+    prevReplacements = pr.read()
+    pr.close()
 
-#allMaterials = []
-pr = open(f"{config.rtx_remix_dir}/mods/{mod_dir}/{replacements_file}", "r")
-prevReplacements = pr.read()
-pr.close()
+    hasherObj = hasher()
+    for x in tqdm( os.listdir("textures/processing/upscaled/"), desc="Converting..." ):
+        if x.endswith(".png"):
+            try:
+                already = hasherObj.saved(f"textures/processing/upscaled/{x}")
+                if( not already ):
+                    with image.Image(filename=f"textures/processing/upscaled/{x}") as img:
+                        img.compression = "dxt5"
+                        img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/diffuse/{x.replace('png','dds')}")
+                        hasherObj.add_saved(f"textures/processing/upscaled/{x}")
 
-hasherObj = hasher()
-for x in tqdm( os.listdir("textures/processing/upscaled/"), desc="Converting..." ):
-    if x.endswith(".png"):
-        try:
-            already = hasherObj.saved(f"{mod_dir}/textures/processing/upscaled/{x}")
-            if( not already ):
-                with image.Image(filename=f"textures/processing/upscaled/{x}") as img:
-                    img.compression = "dxt5"
-                    img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/diffuse/{x.replace('png','dds')}")
-                    hasherObj.add_saved(f"{mod_dir}/textures/processing/upscaled/{x}")
+                already = hasherObj.saved(f"textures/processing/metallness/{x.replace('.png','')}_metal.png")
+                if( not already ):
+                    with image.Image(filename=f"textures/processing/metallness/{x.replace('.png','')}_metal.png") as img:
+                        img.compression = "dxt5"
+                        img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/metallness/{x.replace('png','dds')}")
+                        hasherObj.add_saved(f"textures/processing/metallness/{x.replace('.png','')}_metal.png")
 
-            already = hasherObj.saved(f"{mod_dir}/textures/processing/metallness/{x.replace('.png','')}_metal.png")
-            if( not already ):
-                with image.Image(filename=f"textures/processing/metallness/{x.replace('.png','')}_metal.png") as img:
-                    img.compression = "dxt5"
-                    img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/metallness/{x.replace('png','dds')}")
-                    hasherObj.add_saved(f"{mod_dir}/textures/processing/metallness/{x.replace('.png','')}_metal.png")
+                already = hasherObj.saved(f"textures/processing/normals/{x.replace('.png','')}_normal.png")
+                if( not already ):
+                    with image.Image(filename=f"textures/processing/normals/{x.replace('.png','')}_normal.png") as img:
+                        img.compression = "dxt5"
+                        img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/normals/{x.replace('png','dds')}")
+                        hasherObj.add_saved(f"textures/processing/normals/{x.replace('.png','')}_normal.png")
 
-            already = hasherObj.saved(f"{mod_dir}/textures/processing/normals/{x.replace('.png','')}_normal.png")
+                already = hasherObj.saved(f"textures/processing/roughness/{x.replace('.png','')}_rough.png")
+                if( not already ):
+                    with image.Image(filename=f"textures/processing/roughness/{x.replace('.png','')}_rough.png") as img:
+                        img.compression = "dxt5"
+                        img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/roughness/{x.replace('png','dds')}")
+                        hasherObj.add_saved(f"textures/processing/roughness/{x.replace('.png','')}_rough.png")
 
-            if( not already ):
-                with image.Image(filename=f"textures/processing/normals/{x.replace('.png','')}_normal.png") as img:
-                    img.compression = "dxt5"
-                    img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/normals/{x.replace('png','dds')}")
-                    hasherObj.add_saved(f"{mod_dir}/textures/processing/normals/{x.replace('.png','')}_normal.png")
+                add_mat = example_mat.replace("$filename$",x.replace('.png',''))
 
-            already = hasherObj.saved(f"{mod_dir}/textures/processing/roughness/{x.replace('.png','')}_rough.png")
-            if( not already ):
-                with image.Image(filename=f"textures/processing/roughness/{x.replace('.png','')}_rough.png") as img:
-                    img.compression = "dxt5"
-                    img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/roughness/{x.replace('png','dds')}")
-                    hasherObj.add_saved(f"{mod_dir}/textures/processing/roughness/{x.replace('.png','')}_rough.png")
+                if( "over \"RootNode\"" not in prevReplacements ):
+                    prevReplacements = replacements.replace("$first_mat$","over \"mat_" + add_mat)
 
-            add_mat = example_mat.replace("$filename$",x.replace('.png',''))
-
-            if( "over \"RootNode\"" not in prevReplacements ):
-                prevReplacements = replacements.replace("$first_mat$","over \"mat_" + add_mat)
-            else:
-                if( "mat_" not in prevReplacements ):
-                    prevReplacements = prevReplacements.replace("""over "Looks"
-    {""","""over "Looks"
-    {
-        over \"mat_""" + add_mat)
                 else:
-                    if( "mat_" + x.replace('.png','') not in prevReplacements ):
-                        splitted = prevReplacements.split("over \"mat_")
-                        splitted.insert(1,add_mat)
+                    if( "mat_" not in prevReplacements ):
+                        prevReplacements = prevReplacements.replace("""over "Looks"
+    {""","""over "Looks"
+        {
+            over \"mat_""" + add_mat)
+                    else:
+                        if( "mat_" + x.replace('.png','') not in prevReplacements ):
+                            splitted = prevReplacements.split("over \"mat_")
+                            splitted.insert(1,add_mat)
 
-                        prevReplacements = "over \"mat_".join(splitted)
+                            prevReplacements = "over \"mat_".join(splitted)
 
-            #allMaterials.append(  )
+                #allMaterials.append(  )
 
-        except Exception as e:
-            f = open("logs", "a")
-            f.write( "\n"+str(e) )
-            f.close()
+            except Exception as e:
+                f = open("logs", "a")
+                f.write( "\n"+str(e) )
+                f.close()
 
-hasherObj.saveJson()
+    hasherObj.saveJson()
 
-print("\nWriting replacements...")
-nr = open(f"{config.rtx_remix_dir}/mods/{mod_dir}/{replacements_file}", "w")
-nr.write(prevReplacements)
-nr.close()
-print("Done!")
+    print("\nWriting replacements...")
+    nr = open(f"{config.rtx_remix_dir}/mods/{mod_dir}/{replacements_file}", "w")
+    nr.write(prevReplacements)
+    nr.close()
+    print("Done!")
+
+
+if __name__ == '__main__':
+    mod_dir, replacements_file = modFolder()
+    saveAllTextures(mod_dir, replacements_file)
+
