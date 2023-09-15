@@ -5,6 +5,7 @@ from hash.hasher import *
 from mods.controller import *
 from wand import image
 
+
 replacements = """
 #usda 1.0
 (
@@ -141,6 +142,7 @@ def saveAllTextures(mod_dir, replacements_file):
 
                 if( "over \"RootNode\"" not in prevReplacements ):
                     prevReplacements = replacements.replace("$first_mat$","over \"mat_" + add_mat)
+
                 else:
                     if( "mat_" not in prevReplacements ):
                         prevReplacements = prevReplacements.replace("""over "Looks"
@@ -173,3 +175,4 @@ def saveAllTextures(mod_dir, replacements_file):
 if __name__ == '__main__':
     mod_dir, replacements_file = modFolder()
     saveAllTextures(mod_dir, replacements_file)
+
