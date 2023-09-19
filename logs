@@ -126,3 +126,423 @@ Unimplemented pixel format b'\x17\x00\x00\x00'
 Unimplemented pixel format b'\x17\x00\x00\x00'
 Unimplemented pixel format b'\x17\x00\x00\x00'
 Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'q\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+unable to open image `textures/processing/displacements/D99B4F37E9F20593_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F69C67F51209EA95_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/6719F2C57BA34EAC_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/1E73F6809195BF9C_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/2AF3FA96459743FF_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/EDB84EAC60D28378_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/C379056C0492B46B_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/8024C0FE6B0819CC_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/728A88B0C13F8F6D_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/98F38DA1AB9B46C3_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D811C99A52AB9A76_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/6D220181622CE35D_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/AD00BCAD906A51CD_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7702FD558FC0FD01_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/05B56B1D8CCF7A39_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/4C5B38298116301C_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D45B3CA219474FF8_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7524D18C04317696_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E7F387946EEF7AAC_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E778A36A0A5C10E2_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/495EFBCC928CF5F6_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E35DFB040B91B03C_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/39DDC3B1B12EAD08_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/5196D09FF0230515_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/BB0778A65A4FC27D_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/EF4A7E4DEAEC924F_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/932BCAFF8BDB62FD_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/BCE07B852F809B71_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/5DD8B15C36E68790_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F7E6D755EBFE9A3A_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7F6A86C4723F56C7_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/C823067DA18CF6A9_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F16FBDC913D754CA_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/A82F94A4175597D0_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D4B2ACAA255245EF_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/C42721FA7A03A6F6_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/98117F7400B1AD01_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E8C072BBD79A12D9_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F672DF7F33E7A00B_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E2C70F3553A87E8F_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/06418A725E492D48_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/75BC1D931C5CC2F2_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/9BF740F499588F76_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/110E8B37D3D14E20_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/CE5E39BA0B148591_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/981BBE7F065E64AB_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/5A4F5661FAA51A04_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/89C612516B4DD154_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/87C9C5CB9B553984_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/304F674A7F26DADE_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/78DA0D15F6B85FF1_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/03F466389C95E25C_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7A976159B14EAB14_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/047F1905ABFCEFB7_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/8AC7F2C3302C2065_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/939FA9DC8938DB29_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/8DBE58AA1752C1EB_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/75BC8091F50699C1_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/DA3383E7B4FF3CCD_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/B468762B2E683BF2_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/3878B211049A0E44_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/12C1CC99E2645F45_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/812F08EB90C7AD4F_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E10414CB53B080B2_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F07A3577DA963406_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D4336316908CFE18_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/89EA351FB554A521_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F86EAF9FC5DB08E0_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/BC968C6EE072EB93_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/03A4FFDC910DB800_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/046A5EEECCE771B6_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/6C93331E9416BBDF_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/76EB6954603D145C_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/99B36C317B85A3D6_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/594237D163A3BE5E_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/57964FEE402BABDC_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D8E13A46F09E16A5_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/512DBD18568A2586_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F73A552731A9CBD3_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/6DD042DEE8FA32DF_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/6934E2EB5790E704_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/5B275B9218C46B09_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/AFFEC1115F0AA9D9_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/C8F4F82BADFEFB0D_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/08F6FCD20B7AA222_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/09A09F33826E7878_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/8AC697CB025725C4_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7302E38355FD0C52_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/11A7E0F863179C22_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/C696108E73FB758B_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/389B73D09493D2BB_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/977182EB8856D65A_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/A501421093108F00_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/0FFE9FC67DAFF1F0_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/0EC75C05C3FAB7C4_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/9FB8F6B8FEB928E2_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/51508F0388847513_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/2BE9DAFD0E1583B8_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/5C23B7382FD332DC_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D99B4F37E9F20593_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F69C67F51209EA95_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/6719F2C57BA34EAC_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/1E73F6809195BF9C_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/2AF3FA96459743FF_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/EDB84EAC60D28378_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/C379056C0492B46B_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/8024C0FE6B0819CC_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/728A88B0C13F8F6D_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/98F38DA1AB9B46C3_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D811C99A52AB9A76_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/6D220181622CE35D_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/AD00BCAD906A51CD_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7702FD558FC0FD01_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/05B56B1D8CCF7A39_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/4C5B38298116301C_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D45B3CA219474FF8_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7524D18C04317696_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E7F387946EEF7AAC_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E778A36A0A5C10E2_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/495EFBCC928CF5F6_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E35DFB040B91B03C_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/39DDC3B1B12EAD08_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/5196D09FF0230515_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/BB0778A65A4FC27D_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/EF4A7E4DEAEC924F_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/932BCAFF8BDB62FD_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/BCE07B852F809B71_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/5DD8B15C36E68790_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F7E6D755EBFE9A3A_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7F6A86C4723F56C7_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/C823067DA18CF6A9_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F16FBDC913D754CA_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/A82F94A4175597D0_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D4B2ACAA255245EF_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/C42721FA7A03A6F6_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/98117F7400B1AD01_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E8C072BBD79A12D9_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F672DF7F33E7A00B_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E2C70F3553A87E8F_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/06418A725E492D48_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/75BC1D931C5CC2F2_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/9BF740F499588F76_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/110E8B37D3D14E20_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/CE5E39BA0B148591_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/981BBE7F065E64AB_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/5A4F5661FAA51A04_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/89C612516B4DD154_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/87C9C5CB9B553984_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/304F674A7F26DADE_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/78DA0D15F6B85FF1_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/03F466389C95E25C_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7A976159B14EAB14_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/047F1905ABFCEFB7_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/8AC7F2C3302C2065_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/939FA9DC8938DB29_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/8DBE58AA1752C1EB_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/75BC8091F50699C1_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/DA3383E7B4FF3CCD_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/B468762B2E683BF2_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/3878B211049A0E44_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/12C1CC99E2645F45_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/812F08EB90C7AD4F_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E10414CB53B080B2_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F07A3577DA963406_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D4336316908CFE18_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/89EA351FB554A521_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F86EAF9FC5DB08E0_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/BC968C6EE072EB93_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/03A4FFDC910DB800_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/046A5EEECCE771B6_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/6C93331E9416BBDF_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/76EB6954603D145C_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/99B36C317B85A3D6_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/594237D163A3BE5E_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/57964FEE402BABDC_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D8E13A46F09E16A5_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/512DBD18568A2586_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F73A552731A9CBD3_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/6DD042DEE8FA32DF_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/6934E2EB5790E704_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/5B275B9218C46B09_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/AFFEC1115F0AA9D9_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/C8F4F82BADFEFB0D_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/08F6FCD20B7AA222_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/09A09F33826E7878_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/8AC697CB025725C4_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7302E38355FD0C52_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/11A7E0F863179C22_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/C696108E73FB758B_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/389B73D09493D2BB_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/977182EB8856D65A_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/A501421093108F00_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/0FFE9FC67DAFF1F0_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/0EC75C05C3FAB7C4_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/9FB8F6B8FEB928E2_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/51508F0388847513_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/2BE9DAFD0E1583B8_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/5C23B7382FD332DC_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D99B4F37E9F20593_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F69C67F51209EA95_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/6719F2C57BA34EAC_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/1E73F6809195BF9C_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/2AF3FA96459743FF_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/EDB84EAC60D28378_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/C379056C0492B46B_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/8024C0FE6B0819CC_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/728A88B0C13F8F6D_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/98F38DA1AB9B46C3_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D811C99A52AB9A76_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/6D220181622CE35D_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/AD00BCAD906A51CD_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7702FD558FC0FD01_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/05B56B1D8CCF7A39_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/4C5B38298116301C_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D45B3CA219474FF8_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7524D18C04317696_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E7F387946EEF7AAC_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E778A36A0A5C10E2_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/495EFBCC928CF5F6_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E35DFB040B91B03C_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/39DDC3B1B12EAD08_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/5196D09FF0230515_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/BB0778A65A4FC27D_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/EF4A7E4DEAEC924F_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/932BCAFF8BDB62FD_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/BCE07B852F809B71_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/5DD8B15C36E68790_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F7E6D755EBFE9A3A_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7F6A86C4723F56C7_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/C823067DA18CF6A9_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F16FBDC913D754CA_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/A82F94A4175597D0_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D4B2ACAA255245EF_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/C42721FA7A03A6F6_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/98117F7400B1AD01_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E8C072BBD79A12D9_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F672DF7F33E7A00B_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E2C70F3553A87E8F_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/06418A725E492D48_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/75BC1D931C5CC2F2_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/9BF740F499588F76_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/110E8B37D3D14E20_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/CE5E39BA0B148591_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/981BBE7F065E64AB_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/5A4F5661FAA51A04_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/89C612516B4DD154_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/87C9C5CB9B553984_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/304F674A7F26DADE_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/78DA0D15F6B85FF1_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/03F466389C95E25C_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7A976159B14EAB14_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/047F1905ABFCEFB7_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/8AC7F2C3302C2065_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/939FA9DC8938DB29_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/8DBE58AA1752C1EB_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/75BC8091F50699C1_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/DA3383E7B4FF3CCD_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/B468762B2E683BF2_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/3878B211049A0E44_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/12C1CC99E2645F45_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/812F08EB90C7AD4F_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/E10414CB53B080B2_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F07A3577DA963406_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D4336316908CFE18_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/89EA351FB554A521_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F86EAF9FC5DB08E0_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/BC968C6EE072EB93_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/03A4FFDC910DB800_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/046A5EEECCE771B6_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/6C93331E9416BBDF_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/76EB6954603D145C_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/99B36C317B85A3D6_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/594237D163A3BE5E_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/57964FEE402BABDC_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/D8E13A46F09E16A5_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/512DBD18568A2586_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/F73A552731A9CBD3_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/6DD042DEE8FA32DF_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/6934E2EB5790E704_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/5B275B9218C46B09_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/AFFEC1115F0AA9D9_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/C8F4F82BADFEFB0D_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/08F6FCD20B7AA222_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/09A09F33826E7878_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/8AC697CB025725C4_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7302E38355FD0C52_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/11A7E0F863179C22_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/C696108E73FB758B_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/389B73D09493D2BB_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/977182EB8856D65A_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/A501421093108F00_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/0FFE9FC67DAFF1F0_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/0EC75C05C3FAB7C4_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/9FB8F6B8FEB928E2_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/51508F0388847513_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/2BE9DAFD0E1583B8_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/5C23B7382FD332DC_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'q\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'q\x00\x00\x00'
+Unimplemented DXGI format 61
+Unimplemented DXGI format 61
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/F112ECDA59AB324E.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/D019D9B4F3760459.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/EF4E614CE4901C14.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/23DEBD8FB6862542.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/11D7570888E2F427.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/F28D9E7897C0DE44.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/5E226652890D4255.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/23698377CA6C3D74.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/EA6C93DF9E715B78.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/77BA1D5DBC9160E3.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/D86AFF2E8C1A671C.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/03599CBEC28EAC98.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/82401B44A76AC7E0.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/F3049CCABE3F5E2F.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/2F650247F14882D0.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/75C432F227E19DF3.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/0D3EB2EE21FC157E.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/734B083B79DD8AFB.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/8E003C5F41DCE6B8.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/DE4C7877214C2315.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/8189CDF3E17F8A33.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/95963F58DDDDD15D.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/DAAE73C34AD24C2A.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/38DB271EE0E992BB.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/BEBA0FFC751535AA.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/FDEC7B34EB3823E1.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/40A28AFAB69CB97C.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/2A19A908C590D42E.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/0484960FBFBBB62B.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/627F958C5F323AD1.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/2C9688C2BF6371CD.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/486EE7CFD21A0AFA.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/80F6449AC7EBEE93.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/72A5A153EAC1A913.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/63AE880B762CA175.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/04D8EECF101644DB.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/C65AEA9E4613DE04.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/4B6B753822C37122.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/91AA3A3389A0DA69.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/8B99F46DF80B0F57.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/FC68B706EC7FFA6A.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/D40F73550E8721D2.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/AB5076BDE7C74ADC.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/B0BB37664AF92B89.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/3C46A2FA53FD692F.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `../rtx-remix/mods/OctoTexGUI/SubUSDs/textures/displacements/6602BA893916C43C.dds': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/metallness/2C9688C2BF6371CD_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/metallness/1CEF1ED5BA2A7BFC_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/metallness/1A94A3AA836DDE4F_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/metallness/0AC1FFC3C12A54AC_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/metallness/0C081FA2304092A2_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/metallness/3C606FE7AE786BF8_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/metallness/1F983143FDF76D4A_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/metallness/0C4E737FFE2F1D07_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/metallness/0BFE100080C1A68A_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/metallness/2CFADA031555AB08_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924

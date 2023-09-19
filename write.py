@@ -93,6 +93,16 @@ example_mat = """$filename$"
                     displayName = "Metallic Map"
                     hidden = false
                 )
+                asset inputs:height_texture = @./SubUSDs/textures/displacements/$filename$.dds@ (
+                    colorSpace = "auto"
+                    customData = {
+                        asset default = @@
+                    }
+                    displayGroup = "Displacement"
+                    displayName = "Displacement Map"
+                    hidden = false
+                )
+                float inputs:displace_in = 0.05
             }
         }
 """
@@ -136,6 +146,13 @@ def saveAllTextures(mod_dir, replacements_file):
                         img.compression = "dxt5"
                         img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/roughness/{x.replace('png','dds')}")
                         hasherObj.add_saved(f"textures/processing/roughness/{x.replace('.png','')}_rough.png")
+
+                already = hasherObj.saved(f"textures/processing/displacements/{x.replace('.png','')}_disp.png")
+                if( not already ):
+                    with image.Image(filename=f"textures/processing/displacements/{x.replace('.png','')}_disp.png") as img:
+                        img.compression = "dxt5"
+                        img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/displacements/{x.replace('png','dds')}")
+                        hasherObj.add_saved(f"textures/processing/displacements/{x.replace('.png','')}_disp.png")
 
                 add_mat = example_mat.replace("$filename$",x.replace('.png',''))
 

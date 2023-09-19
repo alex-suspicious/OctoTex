@@ -6,9 +6,21 @@ def generate_metalness(input_file, output_file,intensity):
     im = Image.open(input_file)
 
     if( config.transparency_as_reflectivity ):
-        r, g, b, a = im.split()
-        alpha_image = Image.new("L", im.size)
-        alpha_image.putdata(a.getdata())
+        try:
+            r, g, b, a = im.split()
+        except Exception as e:
+            try:
+                r, g, b = im.split()
+                a = False
+            except Exception as e:
+                r = im.split()
+                g = r
+                b = r
+                a = False
+
+        if( a ):
+            alpha_image = Image.new("L", im.size)
+            alpha_image.putdata(a.getdata())
 
     im = im.convert('L')
     im_a = np.array(im)
@@ -21,7 +33,7 @@ def generate_metalness(input_file, output_file,intensity):
     factor = 0.8
     im_output = enhancer.enhance(factor)
 
-    if( config.transparency_as_reflectivity ):
+    if( config.transparency_as_reflectivity and a ):
         coordinates = x, y = 0, 0
         alpha = alpha_image.getpixel( coordinates )
         if( alpha > 2 ):

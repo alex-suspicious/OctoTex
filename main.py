@@ -7,6 +7,7 @@ from OpenGL.GLU import *
 import glfw
 import pygame
 import pathlib
+import sys
 
 from pyopengltk import OpenGLFrame
 from tkinter.messagebox import showinfo
@@ -17,8 +18,17 @@ import upscale as upscaler
 import pbr as materializer
 import write as writer
 import config
+from tqdm import tqdm
 
 from zipfile import ZipFile
+
+from ai.PBR.model import Unet
+import ai.PBR.eval_disp as displacements
+import ai.PBR.eval_norm as normals
+import ai.PBR.eval_rough as roughness
+sys.path
+sys.path.append('./nvidia')
+from octahedral import *
 
 mouse_pressed = False
 mouse_coord = [0,0]
@@ -60,18 +70,79 @@ def loadTexturesTkinter():
 
 	loader.loadTextures(loadDir,0,0,endLoading)
 
+def aiGenerateDisplacements():
+	messagebox.showinfo("AI", f"Normal map generation may take some time.\nPlease check the console for the generation status.\nPress OK if you understand everything.")
+
+	import gc
+	import torch
+	torch.cuda.empty_cache()
+	gc.collect()
+
+	device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+	PATH_CHK = "ai/PBR/checkpoints/disp/disp_net_last.pth"
+
+	norm_net = Unet().to(device)
+	checkpoint = torch.load(PATH_CHK)
+	norm_net.load_state_dict(checkpoint["model"])
+
+	displacements.generateDisp(norm_net,"textures/processing/upscaled","textures/processing/displacements")
+	messagebox.showinfo("AI", f"Normal map generation is done!")
+	updateTextureTree()
+
+def aiGenerateRoughness():
+	messagebox.showinfo("AI", f"Rough map generation may take some time.\nPlease check the console for the generation status.\nPress OK if you understand everything.")
+
+	import gc
+	import torch
+	torch.cuda.empty_cache()
+	gc.collect()
+
+	device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+	PATH_CHK = "ai/PBR/checkpoints/rough/rough_net_last.pth"
+
+	norm_net = Unet().to(device)
+	checkpoint = torch.load(PATH_CHK)
+	norm_net.load_state_dict(checkpoint["model"])
+
+	roughness.generateRough(norm_net,"textures/processing/upscaled","textures/processing/roughness")
+	messagebox.showinfo("AI", f"Rough map generation is done!")
+	updateTextureTree()
+
+def aiGenerateNormals():
+	messagebox.showinfo("AI", f"Normal map generation may take some time.\nPlease check the console for the generation status.\nPress OK if you understand everything.")
+
+	import gc
+	import torch
+	torch.cuda.empty_cache()
+	gc.collect()
+
+	device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+	PATH_CHK = "ai/PBR/checkpoints/norm/norm_net_last.pth"
+
+	norm_net = Unet().to(device)
+	checkpoint = torch.load(PATH_CHK)
+	norm_net.load_state_dict(checkpoint["model"])
+
+	normals.generateNorm(norm_net,"textures/processing/upscaled","textures/processing/normaldx")
+	for x in tqdm( os.listdir(f"textures/processing/normaldx/"), desc="Generating..." ):
+		if x.endswith(".png"):
+			LightspeedOctahedralConverter.convert_dx_file_to_octahedral(f"textures/processing/normaldx/{x}", f"textures/processing/normals/{x}")
+
+	messagebox.showinfo("AI", f"Normal map generation is done!")
+	updateTextureTree()
+
 def upscaleTexturesTkinter():
-	messagebox.showinfo("Upscaler", f"Upscaling may take some time.\nPlease check the console for the upscaling status.\nPress OK if you understand everything.")
+	messagebox.showinfo("Upscaler x4", f"Upscaling may take some time.\nPlease check the console for the upscaling status.\nPress OK if you understand everything.")
 	upscaler.upscaleTextures()
 
-	messagebox.showinfo("Upscaler", f"Upscaling is done!")
+	messagebox.showinfo("Upscaler x4", f"Upscaling is done!")
 	updateTextureTree()
 
 def upscale2xTexturesTkinter():
-	messagebox.showinfo("Upscaler 2x", f"Upscaling may take some time.\nPlease check the console for the upscaling status.\nPress OK if you understand everything.")
+	messagebox.showinfo("Upscaler x8", f"Upscaling may take some time.\nPlease check the console for the upscaling status.\nPress OK if you understand everything.")
 	upscaler.upscaleTextures2X()
 
-	messagebox.showinfo("Upscaler 2x", f"Upscaling is done!")
+	messagebox.showinfo("Upscaler x8", f"Upscaling is done!")
 	updateTextureTree()
 
 def materializeTexturesTkinter():
@@ -319,18 +390,42 @@ if __name__ == '__main__':
 	    command=materializeTexturesTkinter
 	)
 
+	menubar.add_cascade(
+	    label="Algorithms",
+	    menu=file_menu
+	)
+
+
+	root.config(menu=menubar)
+	file_menu = Menu(menubar)
+
 	file_menu.add_command(
-	    label='Upscale',
+	    label='Upscale x4',
 	    command=upscaleTexturesTkinter
 	)
 
 	file_menu.add_command(
-	    label='Upscale 2x times',
+	    label='Upscale x8',
 	    command=upscale2xTexturesTkinter
 	)
 
+	file_menu.add_command(
+	    label='Generate normal maps',
+	    command=aiGenerateNormals
+	)
+
+	file_menu.add_command(
+	    label='Generate rough maps',
+	    command=aiGenerateRoughness
+	)
+
+	file_menu.add_command(
+	    label='Generate displacement maps',
+	    command=aiGenerateDisplacements
+	)
+
 	menubar.add_cascade(
-	    label="Textures",
+	    label="AI",
 	    menu=file_menu
 	)
 

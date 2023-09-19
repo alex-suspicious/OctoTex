@@ -5,6 +5,8 @@ scipy
 matplotlib
 wand
 PyOpenGL
+PyOpenGL_accelerate
+pygame
 pyopengltk
 torch --index-url https://download.pytorch.org/whl/cu118
 torchvision --index-url https://download.pytorch.org/whl/cu118
