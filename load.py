@@ -8,7 +8,7 @@ import pathlib
 loadDirId = 0
 loadDir = "captures"
 
-neededDirectories = ["textures","textures/processing","textures/processing/upscaled","textures/processing/roughness","textures/processing/normals","textures/processing/metallness","textures/processing/emission","textures/processing/diffuse",f"{config.rtx_remix_dir}/mods"]
+neededDirectories = ["textures","textures/processing","textures/processing/upscaled","textures/processing/roughness","textures/processing/displacements","textures/processing/normaldx","textures/processing/normals","textures/processing/metallness","textures/processing/emission","textures/processing/diffuse",f"{config.rtx_remix_dir}/mods"]
 
 
 for directory in neededDirectories:
