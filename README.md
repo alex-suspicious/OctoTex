@@ -23,7 +23,7 @@ For the first time, all of the steps may take a while, then the process will be 
 1. python main.py      // That's it!
 
 ## Outdated Steps
-1. python load.py ( then select from what folder tou want to load textures )                   // Textures will be in the textures/processing/diffuse folder
+1. python load.py ( then select from what folder you want to load textures )                   // Textures will be in the textures/processing/diffuse folder
 2. python upscale.py ( you will need an Nvidia GPU, pytorch with cuda support installed )      // Textures will be in the textures/processing/upscaled folder
 3. python pbr.py ( this will generate all the pbr textures to the their folders )              // Textures will be in the textures/processing/normals ** roughness ** metallness folders
 4. python write.py ( this will write all the changes back, it will promt to what mod you want to write it, IT'S RECOMENDED TO CREATE A NEW MOD! )
