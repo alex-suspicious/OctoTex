@@ -127,12 +127,12 @@ def saveAllTextures(mod_dir, replacements_file):
                         img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/diffuse/{x.replace('png','dds')}")
                         hasherObj.add_saved(f"textures/processing/upscaled/{x}")
 
-                already = hasherObj.saved(f"textures/processing/metallness/{x.replace('.png','')}_metal.png")
-                if( not already ):
-                    with image.Image(filename=f"textures/processing/metallness/{x.replace('.png','')}_metal.png") as img:
-                        img.compression = "dxt5"
-                        img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/metallness/{x.replace('png','dds')}")
-                        hasherObj.add_saved(f"textures/processing/metallness/{x.replace('.png','')}_metal.png")
+                #already = hasherObj.saved(f"textures/processing/metallness/{x.replace('.png','')}_metal.png")
+                #if( not already ):
+                #    with image.Image(filename=f"textures/processing/metallness/{x.replace('.png','')}_metal.png") as img:
+                #        img.compression = "dxt5"
+                #        img.save(filename=f"{config.rtx_remix_dir}/mods/{mod_dir}/SubUSDs/textures/metallness/{x.replace('png','dds')}")
+                #        hasherObj.add_saved(f"textures/processing/metallness/{x.replace('.png','')}_metal.png")
 
                 already = hasherObj.saved(f"textures/processing/normals/{x.replace('.png','')}_normal.png")
                 if( not already ):
