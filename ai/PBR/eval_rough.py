@@ -16,7 +16,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 #%%
 PATH_CHK = "checkpoints/rough/rough_net_last.pth"
-CROP = 2048
+CROP = 1024
 
 #%%
 transform = transforms.Compose([
@@ -28,7 +28,12 @@ transform = transforms.Compose([
 ])
 
 class TestDataset(Dataset):
-    def __init__(self, img_dir):
+    def __init__(self, img_dir, single = False):
+        if( single ):
+            self.file_list = glob.glob(img_dir)
+            self.names = [os.path.splitext(os.path.basename(fp))[0] for fp in self.file_list]
+            return
+
         self.file_list = glob.glob(img_dir+"/*.png")
         self.names = [os.path.splitext(os.path.basename(fp))[0] for fp in self.file_list]
 
@@ -48,6 +53,37 @@ def generateRough(net, DIR_FROM, DIR_EVAL):
         os.makedirs(output_normal)
 
     data_test = TestDataset(DIR_FROM)
+    # print(batch_size)
+    testloader = DataLoader(data_test, batch_size=1, shuffle=False)
+
+    print("\nOutput disp files...")
+
+    net.eval()
+    with torch.no_grad():
+        for idx, data in enumerate(testloader):
+            img_in = data[0].to(device)
+            img_out = net(img_in)
+            # print(img_name)
+
+            img_out_filename = os.path.join(output_normal, f"{data[1][0]}_rough.png")
+            save_image(img_out, img_out_filename, value_range=(-1,1), normalize=True)
+
+            im = Image.open(img_out_filename).convert("L")
+            enhancer = ImageEnhance.Contrast(im)
+
+            factor = 1.25
+            im_output = enhancer.enhance(factor)
+            im_output.save(img_out_filename)
+
+    print("Done!")
+
+
+def generateRoughSingle(net, DIR_FROM, DIR_EVAL):
+    output_normal = DIR_EVAL
+    if not os.path.exists(output_normal):
+        os.makedirs(output_normal)
+
+    data_test = TestDataset(DIR_FROM, True)
     # print(batch_size)
     testloader = DataLoader(data_test, batch_size=1, shuffle=False)
 

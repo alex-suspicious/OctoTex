@@ -65,6 +65,16 @@ class LightspeedOctahedralConverter:
             img_int = LightspeedOctahedralConverter.convert_ogl_to_octahedral(img)
             Image.fromarray(img_int, "RGB").save(oth_path)
 
+
+    @staticmethod
+    def convert_octahedral_file_to_dx(ogl_path, oth_path):
+        if not Path(ogl_path).exists():
+            print("convert_octahedral_file_to_dx called on non-existant path: " + ogl_path)
+            return
+        with Image.open(ogl_path) as image_file:
+            directx_image = LightspeedOctahedralConverter.decode_octahedral_to_directx(image_file)
+            Image.fromarray(directx_image, "RGB").save(oth_path)
+
     @staticmethod
     def convert_dx_to_octahedral(image):
         normals = LightspeedOctahedralConverter._pixels_to_normals(image)
@@ -120,3 +130,15 @@ class LightspeedOctahedralConverter:
         result[:, :, 0] = snorm_octahedrals[:, :, 0] + snorm_octahedrals[:, :, 1]
         result[:, :, 1] = snorm_octahedrals[:, :, 0] - snorm_octahedrals[:, :, 1]
         return result * 0.5 + 0.5
+
+    @staticmethod
+    def decode_octahedral_to_directx(octahedral_image):
+        array = np.array(octahedral_image)
+        snorm_octahedrals = array.copy()
+
+        new_image = np.zeros( octahedral_image.size + (3,)) 
+        new_image[:, :, 0] = snorm_octahedrals[:, :, 0]
+        new_image[:, :, 1] = snorm_octahedrals[:, :, 1]
+        new_image[:, :, 2] = 255
+
+        return new_image.astype("uint8")
