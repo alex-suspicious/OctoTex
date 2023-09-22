@@ -192,6 +192,7 @@ def run_server(runner):
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
     loop.run_until_complete(runner.setup())
+    print("http://localhost:27015/index.html")
     site = web.TCPSite(runner, 'localhost', 27015)
     loop.run_until_complete(site.start())
     loop.run_forever()
