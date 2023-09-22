@@ -20,7 +20,7 @@ If you don't want or cannot use upscaler, just drag all the textures from remixe
 For the first time, all of the steps may take a while, then the process will be faster.
 
 ## New Steps
-1. python main.py      // That's it!
+1. python webui.py      // That's it!
 
 ## Outdated Steps
 1. python load.py ( then select from what folder you want to load textures )                   // Textures will be in the textures/processing/diffuse folder
