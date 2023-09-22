@@ -1,0 +1,174 @@
+body{
+	background-color: rgb(0, 0, 0);
+}
+
+.nav-link-plugin{
+	width: auto !important;
+	padding-left: 7px !important;
+	padding-right: 7px !important;
+}
+
+.nav-link-plugin.active{
+	width: auto !important;
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+}
+
+.btn-octopus{
+	color: white;
+	border: solid 1px rgba(255, 255, 255, 1.0);
+	border-radius: 0px;
+	padding: 2px 10px 2px 10px;
+	transition: all 0.3s;
+	margin-bottom: 10px;
+}
+
+.btn-octopus:Hover{
+	color: white;
+	border: solid 1px rgba(255, 255, 255, 1.0);
+	background-color: rgba(255, 255, 255, 0.25);
+	border-radius: 0px;
+	padding: 2px 10px 2px 10px;
+}
+
+.input-octopus{
+	text-align: left;
+	color: white;
+	border: solid 1px rgba(255, 255, 255, 1.0);
+	border-radius: 0px;
+	padding: 2px 10px 2px 10px;
+	transition: all 0.3s;
+	margin-bottom: 10px;
+}
+
+.input-octopus:Hover{
+	color: white;
+	border: solid 1px rgba(255, 255, 255, 1.0);
+	background-color: rgba(255, 255, 255, 0.25);
+	border-radius: 0px;
+	padding: 2px 10px 2px 10px;
+}
+
+.input-octopus:Focus{
+	color: white;
+	border: solid 1px rgba(255, 255, 255, 1.0);
+	background-color: rgba(255, 255, 255, 0.25);
+	border-radius: 0px;
+	padding: 2px 10px 2px 10px;
+}
+
+
+.tab-render-html{
+	color: white;
+	padding: 20px;
+	padding-top: 15px;
+}
+
+.spinner-border-sm{
+	margin-right: 5px;
+}
+
+.selected-texture{
+	background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.right-panel{
+	position: absolute;
+	background-color: rgba(0, 0, 0,0.6);
+	width: 300px;
+	height: 100vh;
+	right: 0;
+	overflow: hidden;
+	overflow-y: scroll !important;
+	padding: 15px;
+	backdrop-filter: blur(25px);
+}
+
+.bottom-panel{
+	position: absolute;
+	background-color: rgba(0, 0, 0,0.6);
+	width: calc(100vw - 680px);
+	bottom: 0;
+	left: 340px;
+	height: 50px;
+	overflow: hidden;
+	overflow-y: scroll !important;
+	padding: 15px;
+	backdrop-filter: blur(25px);
+}
+
+.left-panel{
+	position: absolute;
+	background-color: rgba(0, 0, 0,0.6);
+	width: 360px;
+	height: 100vh;
+	overflow: hidden;
+	overflow-y: scroll !important;
+	padding: 0px;
+	backdrop-filter: blur(25px);
+}
+
+.textures-list{
+	color: white;
+}
+
+.textures-list > button{
+	outline: none;
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+	color: white;
+	padding: 0px;
+	margin-top: 0px;
+	padding-top: 10px;
+	font-size: 10px;
+	text-align: center;
+}
+
+.textures-list > button > p{
+	padding-top: 10px;
+	text-align: center;
+}
+
+
+.textures-list > button > img{
+	width: 90%;
+}
+
+.textures-list > button:Hover{
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-tabs > .nav-link{
+	color: white !important;
+	border-radius: 0px;
+	height: 35px;
+	width: 70px;
+	text-align: center;
+	padding: 0px;
+	margin: -1px;
+	transition: all 0.3s;
+	display: inline-block;
+}
+
+.nav-tabs > .nav-link.active{
+	color: black !important;
+	border-radius: 0px;
+	width: 80px;
+}
+
+.nav-tabs > .nav-link:hover{
+	border-radius: 0px;
+}
+
+.nav-tabs-scroll{
+	margin: 0px;
+	white-space: nowrap !important;
+	display: inline-block;
+	width: 100%;
+	overflow-y: hidden;
+	overflow-x: scroll;
+}

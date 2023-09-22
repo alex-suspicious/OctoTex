@@ -1,0 +1,23 @@
+<h1><i class="fa-solid fa-arrow-turn-up"></i> Loader</h1>
+<hr>
+<p>This will load every captured texture and convert it to png files to work with.</p>
+<button class="btn btn-octopus" callback="load_captures" >Load captures</button>
+
+<br><br><br>
+
+<h1><i class="fa-solid fa-microchip"></i> Processing</h1>
+<hr>
+<p>You can edit the material properties, or upscale, generate normals in the material tab separetly for every texture.</p>
+
+<button class="btn btn-octopus" callback="upscale_all_4" >Upscale every texture 4x</button><br>
+<button class="btn btn-octopus" callback="upscale_all_8" >Upscale every texture 8x</button><br>
+<button class="btn btn-octopus" callback="generate_pbr" >Generate PBR for every texture</button><br>
+<button class="btn btn-octopus" callback="generate_pbr_ai" >Generate PBR for every texture with AI</button><br>
+
+
+<br><br><br>
+
+<h1><i class="fa-solid fa-arrow-turn-down"></i> Writer</h1>
+<hr>
+<p>This will create a new mod ( OctoTexGUI ) in rtx-remix folder, and will write the changes there.</p>
+<button class="btn btn-octopus" callback="write_mod" >Write the mod</button>

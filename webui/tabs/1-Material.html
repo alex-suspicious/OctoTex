@@ -1,0 +1,35 @@
+<h1><i class="fa-solid fa-screwdriver-wrench"></i> Options</h1>
+<hr>
+
+<!--
+<p for="depthRange" class="form-label">Displacements Strength</p>
+<input type="range" class="form-range" min="0" max="100" value="0" id="depthRange"><br>
+<p for="depthRange" class="form-label">Roughness Scale</p>
+<input type="range" class="form-range" min="0" max="100" value="0" id="depthRange"><br><br><br>
+-->
+<p>This place is for range inputs, but they are not finished yet, sorry!</p>
+
+<button class="btn btn-octopus need-texture" callback="unupscale" >Revert un-upscaled texture</button><br>
+<button class="btn btn-octopus need-texture" callback="remove_all_pbr" >Remove all PBR texture</button><br>
+<button class="btn btn-octopus" callback="write_mod" >Write</button>
+
+<br><br><br>
+
+<h1><i class="fa-solid fa-brain"></i> Neural Network</h1>
+<hr>
+<p>Here you can upscale selected texture or generate some pbr, everything is powered by AI</p>
+
+<button class="btn btn-octopus need-texture" callback="upscale_single4" >Upscale 4x</button><br>
+<button class="btn btn-octopus need-texture" callback="upscale_single8" >Upscale 8x</button><br>
+<button class="btn btn-octopus need-texture" callback="ai_normal_single" >Generate Normal Map</button><br>
+<button class="btn btn-octopus need-texture" callback="ai_roughness_single" >Generate Roughness Map</button><br>
+<button class="btn btn-octopus need-texture" callback="ai_parallax_single" >Generate Parallax Map</button><br>
+<br><br><br>
+
+<h1><i class="fa-solid fa-person-cane"></i> Legacy</h1>
+<hr>
+<p>That's a legacy old algorithms for pbr generation, they are good, and sometimes outperforms AI</p>
+
+<button class="btn btn-octopus need-texture" callback="normal_single" >Generate Normal Map</button><br>
+<button class="btn btn-octopus need-texture" callback="roughness_single" >Generate Roughness Map</button><br>
+<button class="btn btn-octopus need-texture" callback="metalness_single" >Generate Metalness Map</button>

@@ -40,6 +40,9 @@ yaw = 0
 temp_pitch = 0
 temp_yaw = 0
 
+print("Use webui instead!")
+exit()
+
 def loadTexturesTkinter():
 	loadDirId = 0
 	loadDir = "captures"

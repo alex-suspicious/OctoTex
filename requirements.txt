@@ -3,12 +3,8 @@ pillow
 numpy
 scipy
 matplotlib
+aiohttp
 wand
-PyOpenGL
-PyOpenGL_accelerate
-pygame
-pyopengltk
-glfw
 opencv-python
 basicsr
 realesrgan

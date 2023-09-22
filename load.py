@@ -52,6 +52,7 @@ def loadTextures(loadDir, updateFunction = 0, show = 0, close = 0 ):
         close(success)
 
     hasherObj.saveJson()
+    return success
 
 if __name__ == '__main__':
     mods = [f for f in pathlib.Path().glob(f"{config.rtx_remix_dir}/mods/*")]
