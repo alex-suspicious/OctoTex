@@ -8,9 +8,12 @@ import plugins
 from aiohttp import web
 
 import sys
+import json
+import inspect
 sys.path.append('nvidia')
 
 from octahedral import *
+import webbrowser
 
 
 req_types = {
@@ -51,11 +54,37 @@ def callback(request):
 		func_done = getattr(functions, func_name)
 
 	params = request.rel_url.query
-	if( "texture" in params ):
-		result = func_done( params["texture"] )
-	else:
-		result = func_done()
+	normal_params = {}
+	like_parameters = []
+	for k in set(params.keys()):
+	    normal_params[k] = params.getall(k)
+	
+	#param_keys = list( normal_params.keys() ) 
 
+	func_params = inspect.signature(func_done);
+	func_param_names = [param.name for param in func_params.parameters.values()]
+
+	for x in range( len(func_param_names) ):
+		like_parameters.append( f"normal_params[ \"{func_param_names[x]}\" ][0]" )
+	
+	code = """
+try:
+	result = func_done(""" + ",".join(like_parameters) + """)
+except Exception as e:
+	result = "Error: " + str(e)
+	"""
+	print(code)
+	env = globals()
+	envl = locals()
+	
+	exec(code, env, envl)
+	result = envl['result']
+	print( result )
+	#print(f"\n\n\n\n{result}\n\n\n\n\n")
+	#if( "texture" in params ):
+	#	result = func_done( params["texture"] )
+	#else:
+	#	result = func_done()
 
 	return web.Response(text=result)
 
@@ -74,10 +103,13 @@ def returnNormal(request):
 
 	return web.Response( body=file, content_type="image/*")
 
-async def all_routing( request ):
+async def all_routing( request, index = False ):
 	requestNew = str(request).replace("<Request GET ","").replace(" >","")
 	if( requestNew == "/<" ):
 		return
+
+	if( index ):
+		requestNew = "/index.html"
 
 	fileType = requestNew.split(".")
 	if( "." not in requestNew ):
@@ -117,6 +149,9 @@ async def all_routing( request ):
 
 	response = web.Response( text=file, content_type=reqType, headers=headers)
 	return response
+
+async def index_routing( request ):
+	return await all_routing(request, True)
 
 async def processing_routing( request ):
 	requestNew = str(request).replace("<Request GET ","").replace(" >","")
@@ -182,7 +217,7 @@ def aiohttp_server():
 	app.add_routes([web.get("/processing/{key:.+}", processing_routing)])
 	app.add_routes([web.get(r"/plugin/{name}", plugins_routing)])
 	app.add_routes([web.get("/{key:.+}", all_routing)])
-
+	app.router.add_get('/', index_routing)
 
 	runner = web.AppRunner(app)
 	return runner
@@ -192,7 +227,9 @@ def run_server(runner):
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
     loop.run_until_complete(runner.setup())
-    print("http://localhost:27015/index.html")
+    print("http://localhost:27015")
+    webbrowser.open('http://localhost:27015', new=2)
+
     site = web.TCPSite(runner, 'localhost', 27015)
     loop.run_until_complete(site.start())
     loop.run_forever()
