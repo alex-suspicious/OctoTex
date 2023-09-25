@@ -67,7 +67,7 @@ function makeTextureSelected(name) {
 	$(".selected-texture").removeClass("selected-texture");
 	$("button[name=\""+name+"\"]").addClass("selected-texture");
 
-	$(document).find(".need-texture").attr("texture-name", name);
+	$(document).find(".need-texture").attr("texture", name);
 }
 
 $(document).ready( function () {
@@ -269,8 +269,14 @@ $(document).ready( function () {
 			changeWordsLoading(parent)
 			
 			var args = [];
-			if( parent.hasClass("need-texture") )
-				args.push( "texture=" + parent.attr("texture-name") )
+			//if( parent.hasClass("need-texture") )
+			//	args.push( "texture=" + parent.attr("texture-name") )
+			var blackList = ["disabled", "class", "callback", "prev-html", "role", "value", "id", "aria-labelledby", "style", "src", "href"];
+			$.each(this.attributes, function() {
+				if(this.specified && !blackList.includes(this.name) ) {
+					args.push( this.name + "=" + this.value )
+				}
+			});
 
 			if(  args.length > 0 )
 				args = "?" + args.join('&')
@@ -284,8 +290,8 @@ $(document).ready( function () {
 
 				if( parent.hasClass("need-texture") ){
 					setTimeout(function() {
-						makeTextureSelected( parent.attr("texture-name") );
-						loadMaterial( parent.attr("texture-name") );
+						makeTextureSelected( parent.attr("texture") );
+						loadMaterial( parent.attr("texture") );
 					},100);
 
 				}
@@ -298,6 +304,29 @@ $(document).ready( function () {
 			});
 		}
 	});
+
+	setTimeout(function() {
+	$("input").map(function() {
+		var index = $( "input" ).index( this );
+		var value = localStorage.getItem('input-' + index);
+		//console.log(value);
+
+		if ( value !== null )
+			$(this).val(value);
+	});
+	},1500);
+
+
+	$(document).on("keyup", "input",function() {
+		//console.log();
+		var value = $(this).val();
+		var index = $( "input" ).index( this );
+
+		localStorage.setItem('input-' + index, value);
+		//console.log("saved " + index + " " + value);
+		//if (localStorage.getItem('input-' + index) !== null)
+	});
+
 });
 
 updateList();

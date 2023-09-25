@@ -68,3 +68,74 @@ unable to open image `textures/processing/metallness/A4B48A567CACD70A_metal.png'
 unable to open image `textures/processing/normals/A4B48A567CACD70A_normal.png': No such file or directory @ error/blob.c/OpenBlob/2924
 unable to open image `textures/processing/roughness/A4B48A567CACD70A_rough.png': No such file or directory @ error/blob.c/OpenBlob/2924
 unable to open image `textures/processing/displacements/A4B48A567CACD70A_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'q\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+Unimplemented pixel format b'\x17\x00\x00\x00'
+unable to open image `textures/processing/metallness/A4B48A567CACD70A_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/normals/A4B48A567CACD70A_normal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/roughness/A4B48A567CACD70A_rough.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/A4B48A567CACD70A_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7763BB411831CEF0_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/metallness/A4B48A567CACD70A_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/normals/A4B48A567CACD70A_normal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/roughness/A4B48A567CACD70A_rough.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/A4B48A567CACD70A_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/metallness/6CBE2BF304AEEA8D_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/normals/6CBE2BF304AEEA8D_normal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/roughness/6CBE2BF304AEEA8D_rough.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/6CBE2BF304AEEA8D_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/7763BB411831CEF0_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/metallness/CA2084C3C6A8A1CB_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/normals/CA2084C3C6A8A1CB_normal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/roughness/CA2084C3C6A8A1CB_rough.png': No such file or directory @ error/blob.c/OpenBlob/2924
+unable to open image `textures/processing/displacements/CA2084C3C6A8A1CB_disp.png': No such file or directory @ error/blob.c/OpenBlob/2924

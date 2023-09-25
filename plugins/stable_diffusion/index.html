@@ -3,5 +3,20 @@
 <p>This plugin is for Stable Diffusion texture editing!</p>
 
 
-<input class="btn input-octopus" value="A1111 Address" >
-<button class="btn btn-octopus" >Connect</button>
+<input class="btn input-octopus" id="a1111-address" value="A1111 Address" >
+<input class="btn input-octopus "id="a1111-steps" value="20" >
+<input class="btn input-octopus "id="a1111-strength" value="0.4" >
+<input class="btn input-octopus "id="a1111-prompt" value="Prompt" >
+
+<br>
+<button class="btn btn-octopus need-texture" id="pass_args_a1111" callback="stable_diffusion.img2img" >Generate</button>
+<button class="btn btn-octopus need-texture" callback="stable_diffusion.return_back" >Return Back</button>
+
+<script type="text/javascript">
+	$("#pass_args_a1111").on("click",function() {
+		$(this).attr("address", $("#a1111-address").val() );
+		$(this).attr("prompt", $("#a1111-prompt").val() );
+		$(this).attr("strength", $("#a1111-strength").val() );
+		$(this).attr("steps", $("#a1111-steps").val() );
+	});
+</script>
