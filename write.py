@@ -186,8 +186,8 @@ def saveAllTextures(mod_dir, replacements_file):
                 prevReplacements = replacements.replace("$first_mat$","over \"mat_" + add_mat)
             else:
                 if( "mat_" not in prevReplacements ):
-                    prevReplacements = prevReplacements.replace("""over "Looks"
-{""","""over "Looks"
+                    prevReplacements = prevReplacements.replace("""    over "Looks"
+    {""","""    over "Looks"
     {
         over \"mat_""" + add_mat)
                 else:
