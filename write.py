@@ -5,8 +5,7 @@ from hash.hasher import *
 from mods.controller import *
 from wand import image
 
-replacements = """
-#usda 1.0
+replacements = """#usda 1.0
 (
     upAxis = "Y"
 )
@@ -102,6 +101,8 @@ example_mat = """$filename$"
                     displayName = "Displacement Map"
                     hidden = false
                 )
+                float inputs:transmittance_measurement_distance = 65504
+                float inputs:reflection_roughness_constant = 1
                 float inputs:displace_in = 0.05
             }
         }
@@ -198,15 +199,67 @@ def saveAllTextures(mod_dir, replacements_file):
                         prevReplacements = "over \"mat_".join(splitted)
 
             #allMaterials.append(  )
+            f = open(f"materials/{x.replace('.png','.mat')}","r")
+            material_properties = f.read().split("\n")
+            f.close()
+            
 
+            if( material_properties[0] == "@glass" ):
+                if( "SubUSDs/AperturePBR_Translucent.usda@</Looks/mat_AperturePBR_Translucent" not in prevReplacements ):
+                    prevReplacements = prevReplacements.replace(f"over \"mat_{x.replace('.png','')}\"",f"""over \"mat_{x.replace('.png','')}\"( 
+        references = @./SubUSDs/AperturePBR_Translucent.usda@</Looks/mat_AperturePBR_Translucent>
+    )""" )
+            elif( material_properties[0] == "@opaque" ):
+                prevReplacements = prevReplacements.replace(f"""over \"mat_{x.replace('.png','')}\"( 
+        references = @./SubUSDs/AperturePBR_Translucent.usda@</Looks/mat_AperturePBR_Translucent>
+    )""", f"over \"mat_{x.replace('.png','')}\"" )
+            
+            body = prevReplacements.split(f"over \"mat_{x.replace('.png','')}\"")[1]
+            body = body.split("""            }
+        }""")[0]
+            backup = body
+            #print(body)
+            variables = body.split("\n")
+            material_properties.append("@AperturePBR_Translucent.mdl@")
+            
+            for z in range( 1, len(material_properties) ):
+                for y in range( len(variables)-1 ):
+                    if( material_properties[z].split(" ")[0] in variables[y]):
+                        variables.pop(y)
+
+            variables.pop(-1)
+
+            for y in range( 1, len(material_properties)-1 ):
+                variables.append(f"                float inputs:{material_properties[y]}")
+
+
+            if( material_properties[0] == "@glass" ):
+                variables.append("                uniform asset info:mdl:sourceAsset = @AperturePBR_Translucent.mdl@" )
+  
+            body = "\n".join(variables)
+            if( material_properties[0] == "@opaque" ):
+                body = body.replace("uniform asset info:mdl:sourceAsset = @AperturePBR_Translucent.mdl@", "" )
+            
+
+            prevReplacements = prevReplacements.replace(backup,body + "\n")
 
     hasherObj.saveJson()
+
 
     print("\nWriting replacements...")
     nr = open(f"{config.rtx_remix_dir}/mods/{mod_dir}/{replacements_file}", "w")
     nr.write(prevReplacements)
     nr.close()
     print("Done!")
+
+    nr = open(f"{config.rtx_remix_dir}/mods/{mod_dir}/mod.usda", "r")
+    data = nr.read()
+    nr.close()
+
+    nr = open(f"{config.rtx_remix_dir}/mods/{mod_dir}/mod.usda", "w")
+    nr.write(data)
+    nr.close()
+
     return files
 
 
