@@ -15,6 +15,12 @@ sys.path.append('nvidia')
 from octahedral import *
 import webbrowser
 
+default_material = """@opaque
+displace_in = 0.05
+transmittance_measurement_distance = 1
+reflection_roughness_constant = 1
+ior_constant = 0
+metallic_constant = 0"""
 
 req_types = {
 	"html":"text/html",
@@ -73,13 +79,13 @@ try:
 except Exception as e:
 	result = "Error: " + str(e)
 	"""
-	print(code)
+	#print(code)
 	env = globals()
 	envl = locals()
 	
 	exec(code, env, envl)
 	result = envl['result']
-	print( result )
+	#print( result )
 	#print(f"\n\n\n\n{result}\n\n\n\n\n")
 	#if( "texture" in params ):
 	#	result = func_done( params["texture"] )
@@ -171,6 +177,16 @@ async def processing_routing( request ):
 
 	cache = cache_types[ fileType[len(fileType)-1].split("?")[0] ]
 
+	path = f"materials/" + requestNew.split("/")[-1].replace(".png",".mat")
+	exists = os.path.exists(path)
+	if( not exists ):
+		try:
+			f = open(path, "w", encoding="utf8")
+			f.write( default_material )
+			f.close()
+		except Exception as e:
+			print( str(e) )
+
 	if( "image" in reqType or "octet" in reqType or "woff2" in reqType ):
 		try:
 			f = open("textures/" + requestNew, "rb")
@@ -184,11 +200,9 @@ async def processing_routing( request ):
 			f.close()
 			return web.Response( body=file, content_type=reqType)
 
-
 	f = open("textures/" + requestNew, "r", encoding="utf8")
 	file = f.read()
 	f.close()
-
 
 	headers = {}
 	if( cache ):

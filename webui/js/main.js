@@ -23,8 +23,22 @@ THREE.Cache.enabled = false;
 init();
 animate();
 
+
 function loadMaterial( name ) {
 	const diffuse = textureLoader.load( 'processing/upscaled/'+name+'.png' );
+
+	
+	$.get( "/callback/get_material?texture=" + name, function( data ) {
+		var splitted = data.split("\n");
+		$("#material_type").val(splitted[0].replace("@",""));
+		$("#depthRange").val( parseFloat(splitted[1].split("=")[1].replace(" ",""))*1000 );
+		$("#roughnessRange").val( parseFloat(splitted[3].split("=")[1].replace(" ",""))*1000 );
+		$("#transparencyRange").val( parseFloat(splitted[2].split("=")[1].replace(" ",""))*1000 );
+		$("#ior_constant").val( parseFloat(splitted[4].split("=")[1].replace(" ",""))*1000 );
+		$("#metallic_constant").val( parseFloat(splitted[5].split("=")[1].replace(" ",""))*1000 );
+
+		console.log(splitted)
+	});
 
 	textureLoader.load(
 	    'processing/normal/'+name+'_normal.png',
@@ -115,30 +129,30 @@ function init() {
 
 	particleLight = new THREE.Mesh(
 		new THREE.SphereGeometry( .05, 8, 8 ),
-		new THREE.MeshBasicMaterial( { color: 0xffAAAA } )
+		new THREE.MeshBasicMaterial( { color: 0xffffff } )
 	);
 	scene.add( particleLight );
-	var particleLightLight = new THREE.PointLight( 0xffAAAA, 150 );
+	var particleLightLight = new THREE.PointLight( 0xffffff, 150 );
 	particleLightLight.castShadow = true; 
 	particleLight.add( particleLightLight );
 
 	particleLight2 = new THREE.Mesh(
 		new THREE.SphereGeometry( .05, 8, 8 ),
-		new THREE.MeshBasicMaterial( { color: 0xAAffAA } )
+		new THREE.MeshBasicMaterial( { color: 0xffffff } )
 	);
 	scene.add( particleLight2 );
 
-	var particleLightLight2 = new THREE.PointLight( 0xAAffAA, 150 );
+	var particleLightLight2 = new THREE.PointLight( 0xffffff, 150 );
 	particleLightLight2.castShadow = true; 
 	particleLight2.add( particleLightLight2 );
 
 	particleLight3 = new THREE.Mesh(
 		new THREE.SphereGeometry( .05, 8, 8 ),
-		new THREE.MeshBasicMaterial( { color: 0xAAAAff } )
+		new THREE.MeshBasicMaterial( { color: 0xffffff } )
 	);
 	scene.add( particleLight3 );
 
-	var particleLightLight3 = new THREE.PointLight( 0xAAAAff, 150 );
+	var particleLightLight3 = new THREE.PointLight( 0xffffff, 150 );
 	particleLightLight3.castShadow = true; 
 	particleLight3.add( particleLightLight3 );
 
@@ -190,17 +204,17 @@ function render() {
 
 	const timer = Date.now() * 0.000025;
 
-	particleLight.position.x = Math.sin( timer * 7 ) * 7;
-	particleLight.position.y = Math.cos( timer * 5 ) * 9;
-	particleLight.position.z = Math.cos( timer * 3 ) * -7;
+	particleLight.position.x = Math.sin( timer * 7 ) * 9;
+	particleLight.position.y = Math.cos( timer * 5 ) * 13;
+	particleLight.position.z = Math.cos( timer * 3 ) * -14;
 
-	particleLight2.position.x = Math.sin( timer * 3 ) * 7;
-	particleLight2.position.y = Math.cos( timer * 8 ) * 9;
-	particleLight2.position.z = Math.cos( timer * 4 ) * 7;
+	particleLight2.position.x = Math.sin( timer * 3 ) * 14;
+	particleLight2.position.y = Math.cos( timer * 8 ) * 12;
+	particleLight2.position.z = Math.cos( timer * 4 ) * 17;
 
-	particleLight3.position.x = Math.sin( timer * 5 ) * 7;
+	particleLight3.position.x = Math.sin( timer * 5 ) * 20;
 	particleLight3.position.y = Math.cos( timer * 9 ) * -9;
-	particleLight3.position.z = Math.cos( timer * 5 ) * 7;
+	particleLight3.position.z = Math.cos( timer * 5 ) * 12;
 
 
 	renderer.render( scene, camera );

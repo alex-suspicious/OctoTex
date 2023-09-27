@@ -1,13 +1,25 @@
 <h1><i class="fa-solid fa-screwdriver-wrench"></i> Options</h1>
 <hr>
 
-<!--
+<label for="exampleFormControlInput1" class="form-label">Material type</label><br>
+<select class="btn btn-octopus update_material" id="material_type" >
+	<option value="opaque" >opaque</option>
+	<option value="glass" >glass</option>
+</select>
+<br>
+
 <p for="depthRange" class="form-label">Displacements Strength</p>
-<input type="range" class="form-range" min="0" max="100" value="0" id="depthRange"><br>
-<p for="depthRange" class="form-label">Roughness Scale</p>
-<input type="range" class="form-range" min="0" max="100" value="0" id="depthRange"><br><br><br>
--->
-<p>This place is for range inputs, but they are not finished yet, sorry!</p>
+<input type="range" class="form-range update_material" min="0" max="1000" value="0" id="depthRange"><br>
+<p for="roughnessRange" class="form-label">Roughness Scale</p>
+<input type="range" class="form-range update_material" min="0" max="1000" value="0" id="roughnessRange"><br>
+<p for="ior_constant" class="form-label">Metallic Scale</p>
+<input type="range" class="form-range update_material" min="0" max="1000" value="0" id="metallic_constant"><br>
+<p for="transparencyRange" class="form-label">Transparency ( Only for glass )</p>
+<input type="range" class="form-range update_material" min="0" max="1000" value="0" id="transparencyRange"><br>
+<p for="ior_constant" class="form-label">Index of Refraction ( Only for glass )</p>
+<input type="range" class="form-range update_material" min="0" max="1000" value="0" id="ior_constant"><br><br><br>
+
+
 
 <button class="btn btn-octopus need-texture" callback="unupscale" >Revert un-upscaled texture</button><br>
 <button class="btn btn-octopus need-texture" callback="remove_all_pbr" >Remove all PBR texture</button><br>
@@ -21,6 +33,7 @@
 
 <button class="btn btn-octopus need-texture" callback="upscale_single4" >Upscale 4x</button><br>
 <button class="btn btn-octopus need-texture" callback="upscale_single8" >Upscale 8x</button><br>
+<button class="btn btn-octopus need-texture" callback="ai_unbake_single" >Unbake Albedo</button><br>
 <button class="btn btn-octopus need-texture" callback="ai_normal_single" >Generate Normal Map</button><br>
 <button class="btn btn-octopus need-texture" callback="ai_roughness_single" >Generate Roughness Map</button><br>
 <button class="btn btn-octopus need-texture" callback="ai_parallax_single" >Generate Parallax Map</button><br>
@@ -33,3 +46,23 @@
 <button class="btn btn-octopus need-texture" callback="normal_single" >Generate Normal Map</button><br>
 <button class="btn btn-octopus need-texture" callback="roughness_single" >Generate Roughness Map</button><br>
 <button class="btn btn-octopus need-texture" callback="metalness_single" >Generate Metalness Map</button>
+
+
+
+<script type="text/javascript">
+	$(".update_material").on("change", function() {
+		var query = "texture=" + $(".need-texture").attr("texture");
+		query += "&mtype=" + $("#material_type").val();
+		query += "&displace_in=" + $("#depthRange").val()/1000.0;
+		query += "&reflection_roughness_constant=" + $("#roughnessRange").val()/1000.0;
+		query += "&transmittance_measurement_distance=" + $("#transparencyRange").val()/1000.0;
+		query += "&ior_constant=" + $("#ior_constant").val()/1000.0;
+		query += "&metallic_constant=" + $("#metallic_constant").val()/1000.0;
+
+
+		$.get("/callback/update_material?" + query,function( response ) {
+			console.log( response )
+		});
+	});
+
+</script>

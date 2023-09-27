@@ -21,9 +21,28 @@ from ai.PBR.model import Unet
 import ai.PBR.eval_disp as displacements
 import ai.PBR.eval_norm as normals
 import ai.PBR.eval_rough as roughness
+import ai.PBR.eval_unbake as unbakes
 sys.path
 sys.path.append('./nvidia')
 from octahedral import *
+
+
+def update_material( texture, mtype, displace_in, transmittance_measurement_distance, reflection_roughness_constant, ior_constant, metallic_constant  ):
+   f = open( f"materials/{texture}.mat" ,"w")
+   f.write(f"""@{mtype}
+displace_in = {displace_in}
+transmittance_measurement_distance = {transmittance_measurement_distance}
+reflection_roughness_constant = {reflection_roughness_constant}
+ior_constant = {ior_constant}
+metallic_constant = {metallic_constant}""")
+   f.close()
+
+def get_material( texture  ):
+   f = open( f"materials/{texture}.mat" ,"r")
+   data = f.read()
+   f.close()
+   return data
+
 
 def normal_single( texture ):
    textureUpscaled = os.path.exists(f"textures/processing/upscaled/{texture}.png")
@@ -112,6 +131,11 @@ def remove_all_pbr( texture ):
    except Exception as e:
       print(e)
 
+   try:
+      os.remove(f"webui/textures/temp/{texture}_normal.png")
+   except Exception as e:
+      print(e)
+
    return "Removed!"
 
 def ai_normal_single( texture ):
@@ -138,6 +162,31 @@ def ai_normal_single( texture ):
          LightspeedOctahedralConverter.convert_dx_file_to_octahedral(f"textures/processing/normaldx/{x}", f"textures/processing/normals/{x}")
 
    return "Normal map is done!"
+
+def ai_unbake_single( texture ):
+   textureUnbaked = os.path.exists(f"textures/processing/baked/{texture}.png")
+   isExist = os.path.exists("textures/processing/baked")
+   if not isExist:
+      os.makedirs("textures/processing/baked")
+
+   if( not textureUnbaked ):
+      shutil.move(f"textures/processing/upscaled/{texture}.png", f"textures/processing/baked/{texture}.png")   
+
+   import gc
+   import torch
+   torch.cuda.empty_cache()
+   gc.collect()
+
+   device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+   PATH_CHK = "ai/PBR/checkpoints/unbake/unbake_net_last.pth"
+
+   norm_net = Unet().to(device)
+   checkpoint = torch.load(PATH_CHK)
+   norm_net.load_state_dict(checkpoint["model"])
+
+   unbakes.generateUnbakeSingle(norm_net,f"textures/processing/baked/{texture}.png","textures/processing/upscaled")
+
+   return "Unbaking is done!"
 
 def ai_roughness_single( texture ):
    textureUpscaled = os.path.exists(f"textures/processing/upscaled/{texture}.png")
