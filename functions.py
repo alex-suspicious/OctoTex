@@ -26,6 +26,36 @@ sys.path
 sys.path.append('./nvidia')
 from octahedral import *
 
+def update_config( upscaler ):
+   config.upscale_model = upscaler
+
+   f = open("config.py","r")
+   data = f.read()
+   f.close()
+   data = data.split("\n")
+
+
+   data[1] = f'upscale_model = "{upscaler}"';
+   
+   f = open("config.py","w")
+   f.write( "\n".join(data) )
+   f.close()
+
+
+def get_upscale_models():
+   ESRGAN = os.listdir("models/ESRGAN/")
+   array_models = [];
+
+   for x in range(len(ESRGAN)):
+      temp = ESRGAN[x]
+      array_models.append(f"models/ESRGAN/{temp}")
+
+   RealESRGAN = os.listdir("models/RealESRGAN/")
+   for x in range(len(RealESRGAN)):
+      temp = RealESRGAN[x]
+      array_models.append(f"models/RealESRGAN/{temp}")
+
+   return ",".join(array_models)
 
 def update_material( texture, mtype, displace_in, transmittance_measurement_distance, reflection_roughness_constant, ior_constant, metallic_constant  ):
    f = open( f"materials/{texture}.mat" ,"w")

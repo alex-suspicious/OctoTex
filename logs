@@ -8322,3 +8322,6 @@ unable to open image `textures/processing/metallness/D019A3E78BBAE5FD_metal.png'
 unable to open image `textures/processing/metallness/02982B018AFB7CD2_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924
 unable to open image `textures/processing/metallness/BEEC6B226AF7AE99_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924
 unable to open image `textures/processing/metallness/328CE786B33D5E91_metal.png': No such file or directory @ error/blob.c/OpenBlob/2924
+Unimplemented pixel format b'q\x00\x00\x00'
+Unimplemented DXGI format 61
+Unimplemented DXGI format 61

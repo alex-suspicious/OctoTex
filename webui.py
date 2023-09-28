@@ -50,6 +50,15 @@ cache_types = {
 	"hdr":True
 }
 
+neededDirectories = ["materials","webui/textures/temp"]
+
+
+for directory in neededDirectories:
+    isExist = os.path.exists(directory)
+    if not isExist:
+        os.makedirs(directory)
+
+
 def callback(request):
 	func_name = str(request).split("/")[2]
 	func_name = func_name.replace(" >","")
