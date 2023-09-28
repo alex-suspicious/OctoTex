@@ -9,7 +9,7 @@ import glob
 import numpy as np
 from tqdm import tqdm
 from time import sleep
-from PIL import Image
+from PIL import Image, ImageEnhance
 import matplotlib.pyplot as plt
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -90,6 +90,15 @@ def generateUnbakeSingle(net, DIR_FROM, DIR_EVAL):
 
             img_out_filename = os.path.join(output_normal, f"{data[1][0]}.png")
             save_image(img_out, img_out_filename, value_range=(-1,1), normalize=True)
+
+            img = Image.open(img_out_filename)
+            converter = ImageEnhance.Color(img)
+            img2 = converter.enhance(1.2)
+
+            pixvals = np.array(img2)
+            pixvals = (pixvals - 0.4)*0.8
+            img = Image.fromarray(pixvals.astype(np.uint8))
+            img.save(img_out_filename)
 
     print("Done!")
 

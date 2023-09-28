@@ -17,12 +17,51 @@ let particleLight2;
 let particleLight3;
 let group;
 let mesh;
+let newMaterial;
+let rotate = true;
+let yaw_angle = 0;
+let yaw_angle_lerp = 0;
+
 const textureLoader = new THREE.TextureLoader();
 THREE.Cache.enabled = false;
 
 init();
 animate();
 
+function lerp (start, end, amt){
+  return (1-amt)*start+amt*end
+}
+const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+
+function updateThreeMaterial() {
+	if( !newMaterial || !mesh )
+		return;
+
+	if( $("#material_type").val().replace("@","") == "glass" ){
+		var trans = clamp( ($("#transparencyRange").val()/1200), 0 , 1 );
+
+		newMaterial.ior = $("#ior_constant").val()/1000.0;
+		newMaterial.reflectivity = 1.0 - $("#roughnessRange").val()/1000.0;
+		newMaterial.transmission = $("#transparencyRange").val()/980.0;
+		newMaterial.opacity = $("#transparencyRange").val()/980.0;
+		newMaterial.thickness = $("#ior_constant").val()/1000.0;
+		newMaterial.sheen = trans;
+		newMaterial.transparent = false;
+		newMaterial.map = null;
+		newMaterial.color = new THREE.Color(trans,trans,trans);
+	}
+	else{
+		newMaterial.transmission = 0;
+		newMaterial.transparent = true;
+		newMaterial.color = new THREE.Color(1,1,1);
+	}
+
+	newMaterial.roughness = $("#roughnessRange").val()/1000.0;
+	newMaterial.displacementScale = $("#depthRange").val()/1000.0;
+	newMaterial.metalness = $("#metallic_constant").val()/1000.0;
+
+	mesh.material = newMaterial;
+}
 
 function loadMaterial( name ) {
 	const diffuse = textureLoader.load( 'processing/upscaled/'+name+'.png' );
@@ -37,6 +76,11 @@ function loadMaterial( name ) {
 		$("#ior_constant").val( parseFloat(splitted[4].split("=")[1].replace(" ",""))*1000 );
 		$("#metallic_constant").val( parseFloat(splitted[5].split("=")[1].replace(" ",""))*1000 );
 
+		updateThreeMaterial();
+		setTimeout(function() {
+			updateThreeMaterial();
+		},500);
+
 		console.log(splitted)
 	});
 
@@ -46,7 +90,7 @@ function loadMaterial( name ) {
 			const roughnessMap = textureLoader.load( 'processing/roughness/'+name+'_rough.png' );
 			const displacementsMap = textureLoader.load( 'processing/displacements/'+name+'_disp.png' );
 
-			var newMaterial = new THREE.MeshPhysicalMaterial( {
+			newMaterial = new THREE.MeshPhysicalMaterial( {
 				metalness: 0.0,
 				roughnessMap: roughnessMap,
 				clearcoat: 0,
@@ -55,18 +99,20 @@ function loadMaterial( name ) {
 				transparent: true,
 				normalMap: texture,
 				bumpMap: displacementsMap,
-				map: diffuse
+				map: diffuse,
+				side: THREE.DoubleSide
 			} );
 			mesh.material = newMaterial;
 	    },
 	    function ( xhr ) {},
 	    function ( xhr ) {
-			var newMaterial = new THREE.MeshPhysicalMaterial( {
+			newMaterial = new THREE.MeshPhysicalMaterial( {
 				metalness: 0.0,
 				roughness: 1,
 				transparent: true,
 				clearcoat: 0,
-				map: diffuse
+				map: diffuse,
+				side: THREE.DoubleSide
 			} );
 			mesh.material = newMaterial;
 
@@ -75,6 +121,7 @@ function loadMaterial( name ) {
 	);
 
 }
+
 
 
 function makeTextureSelected(name) {
@@ -88,6 +135,46 @@ $(document).ready( function () {
 	$(document).on ("click", ".load-texture",function() {
 		makeTextureSelected( $(this).attr("name") );
 		loadMaterial( $(this).attr("name") );
+	});
+
+	$(document).on ("click", ".toggle-rotation",function() {
+		rotate = !rotate;
+		if( !rotate ){
+			$(".toggle-rotation").removeClass("fa-hand");
+			$(".toggle-rotation").addClass("fa-rotate");
+		}else{
+			$(".toggle-rotation").addClass("fa-hand");
+			$(".toggle-rotation").removeClass("fa-rotate");
+		}
+	});
+
+	$(document).on ("input",".update_material", function() {
+		updateThreeMaterial();
+	});
+
+	$(document).on ("click",".mesh-change", function() {
+		var meshname = $(this).attr("mesh");
+
+		group.remove(mesh);
+		mesh = null;
+		var geometry = null;
+
+		if( meshname == "plane" )
+			geometry = new THREE.PlaneGeometry( 3, 3, 512, 512 );
+		if( meshname == "cube" )
+			geometry = new THREE.BoxGeometry( 3, 3, 3,512, 512, 512 );
+		if( meshname == "sphere" )
+			geometry = new THREE.SphereGeometry( 2, 512, 512 );
+
+		mesh = new THREE.Mesh( geometry );
+		mesh.position.x = 0;
+		mesh.position.y = 0;
+		mesh.position.z = 0;
+		mesh.castShadow = true;
+		group.add( mesh );
+		setTimeout(function() {
+			updateThreeMaterial();
+		},300);
 	});
 });
 
@@ -113,7 +200,7 @@ function init() {
 				mesh = new THREE.Mesh( geometry );
 				mesh.position.x = 0;
 				mesh.position.y = 0;
-				mesh.position.z = -0.4;
+				mesh.position.z = 0;
 				mesh.castShadow = true;
 				group.add( mesh );
 
@@ -216,6 +303,14 @@ function render() {
 	particleLight3.position.y = Math.cos( timer * 9 ) * -9;
 	particleLight3.position.z = Math.cos( timer * 5 ) * 12;
 
+	if( mesh ){
+		//mesh.position.y = Math.sin( timer * 30 )*0.5;
+		if( rotate )
+			yaw_angle += 0.02;
+
+		yaw_angle_lerp = lerp(yaw_angle,yaw_angle_lerp,0.95)
+		mesh.rotation.y = yaw_angle_lerp;
+	}
 
 	renderer.render( scene, camera );
 
