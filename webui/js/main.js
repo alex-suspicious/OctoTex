@@ -75,6 +75,7 @@ function loadMaterial( name ) {
 		$("#transparencyRange").val( parseFloat(splitted[2].split("=")[1].replace(" ",""))*1000 );
 		$("#ior_constant").val( parseFloat(splitted[4].split("=")[1].replace(" ",""))*1000 );
 		$("#metallic_constant").val( parseFloat(splitted[5].split("=")[1].replace(" ",""))*1000 );
+		$("#emissive_intensity").val( parseFloat(splitted[6].split("=")[1].replace(" ",""))*1000 );
 
 		updateThreeMaterial();
 		setTimeout(function() {
@@ -322,7 +323,7 @@ function updateList() {
 		var list = data.split(",");
 		$(".textures-list").html("");
 
-		for (var i = 0; i < list.length-1; i++) {
+		for (var i = 0; i < list.length; i++) {
 	  		$(".textures-list").append(
 	  			`<button class="col-4 load-texture" name="`+list[i].split(".")[0]+`">
 	  				<img src="/processing/upscaled/`+list[i]+`" >
@@ -439,3 +440,25 @@ $(document).ready( function () {
 });
 
 updateList();
+
+//303C5BD3B6882DD9
+var prevHash = "";
+
+$(function() {
+
+    $(window).focus(function() {
+			$.get("/callback/get_clipboard",function( newHash ) {
+				console.log(newHash);
+				if( !newHash )
+					return;
+
+				if( prevHash == newHash )
+					return;
+
+				prevHash = newHash;
+				makeTextureSelected( prevHash );
+				loadMaterial( prevHash );
+			});
+    });
+
+});

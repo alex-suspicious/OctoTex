@@ -1,0 +1,47 @@
+<h1><i class="fa-solid fa-globe"></i> ambientCG</h1>
+<hr>
+<p>Select the material you want to apply!</p>
+
+
+<div class="ambientcg-materials" >
+	
+</div>
+<br>
+<button class="btn btn-octopus" onclick="prevPage();" >Prev Page</button>
+<button class="btn btn-octopus" onclick="nextPage();" >Next Page</button>
+
+<script type="text/javascript">
+	page = 0;
+
+	function showPage(page) {
+		$(".ambientcg-materials").html("");
+
+		$.get("callback/ambientcg.list?page=" + page,function( response ) {
+			var data = JSON.parse(response);
+			for (var i = 0; i < data.length; i++) {
+				var name = data[i].split("/");
+				name = name[ name.length-1 ].replace(".jpg","");
+
+				$(".ambientcg-materials").append(`<button class="col-4 install-ambientcg-material need-texture" callback="ambientcg.install" link="`+name+`" >
+	  				<img src="`+data[i]+`" >
+	  				<p>`+name+`</p>
+	  			</button>`);
+			}
+		});
+	}
+	function prevPage() {
+		page--;
+		if( page < 1 )
+			page = 0;
+
+		showPage(page);
+	}
+
+	function nextPage() {
+		page++;
+		showPage(page);
+	}
+
+	showPage(page);
+
+</script>

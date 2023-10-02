@@ -20,8 +20,8 @@ CROP = 1024
 
 #%%
 transform = transforms.Compose([
-    transforms.Resize(CROP),
-    transforms.CenterCrop(CROP),
+    #transforms.Resize(CROP),
+    #transforms.CenterCrop(CROP),
     transforms.ToTensor(),
     transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5)) # (input - mean) / std
     # outputs range from -1 to 1

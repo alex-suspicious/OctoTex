@@ -20,7 +20,8 @@ displace_in = 0.05
 transmittance_measurement_distance = 1
 reflection_roughness_constant = 1
 ior_constant = 0
-metallic_constant = 0"""
+metallic_constant = 0
+emissive_intensity = 0"""
 
 req_types = {
 	"html":"text/html",
@@ -112,9 +113,13 @@ def returnNormal(request):
 
 	LightspeedOctahedralConverter.convert_octahedral_file_to_dx("textures/processing/normals/" + fileName, "webui/textures/temp/" + fileName)
 
-	f = open("webui/textures/temp/" + fileName, "rb")
-	file = f.read()
-	f.close()
+	try:
+		f = open("webui/textures/temp/" + fileName, "rb")
+		file = f.read()
+		f.close()
+	except Exception as e:
+		return e
+	
 
 	return web.Response( body=file, content_type="image/*")
 
@@ -146,11 +151,14 @@ async def all_routing( request, index = False ):
 			f.close()
 			return web.Response( body=file, content_type=reqType)
 		except Exception as e:
-			requestNew = requestNew.replace("upscaled","diffuse")
-			f = open("webui/" + requestNew, "rb")
-			file = f.read()
-			f.close()
-			return web.Response( body=file, content_type=reqType)
+			try:
+				requestNew = requestNew.replace("upscaled","diffuse")
+				f = open("webui/" + requestNew, "rb")
+				file = f.read()
+				f.close()
+				return web.Response( body=file, content_type=reqType)
+			except Exception as e:
+				return
 
 
 	f = open("webui/" + requestNew, "r", encoding="utf8")
@@ -187,6 +195,7 @@ async def processing_routing( request ):
 	cache = cache_types[ fileType[len(fileType)-1].split("?")[0] ]
 
 	path = f"materials/" + requestNew.split("/")[-1].replace(".png",".mat")
+	#print(path)
 	exists = os.path.exists(path)
 	if( not exists ):
 		try:
@@ -194,7 +203,8 @@ async def processing_routing( request ):
 			f.write( default_material )
 			f.close()
 		except Exception as e:
-			print( str(e) )
+			pass
+			#print( str(e) )
 
 	if( "image" in reqType or "octet" in reqType or "woff2" in reqType ):
 		try:
@@ -203,15 +213,22 @@ async def processing_routing( request ):
 			f.close()
 			return web.Response( body=file, content_type=reqType)
 		except Exception as e:
-			requestNew = requestNew.replace("upscaled","diffuse")
-			f = open("textures/" + requestNew, "rb")
-			file = f.read()
-			f.close()
-			return web.Response( body=file, content_type=reqType)
+			try:
+				requestNew = requestNew.replace("upscaled","diffuse")
+				f = open("textures/" + requestNew, "rb")
+				file = f.read()
+				f.close()
+				return web.Response( body=file, content_type=reqType)
+			except Exception as e:
+				return
 
-	f = open("textures/" + requestNew, "r", encoding="utf8")
-	file = f.read()
-	f.close()
+	try:
+		f = open("textures/" + requestNew, "r", encoding="utf8")
+		file = f.read()
+		f.close()
+	except Exception as e:
+		return
+
 
 	headers = {}
 	if( cache ):

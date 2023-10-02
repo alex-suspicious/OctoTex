@@ -5,9 +5,12 @@
 <select class="btn btn-octopus update_material" id="material_type" >
 	<option value="opaque" >opaque</option>
 	<option value="glass" >glass</option>
+	<option value="emissive" >emissive</option>
 </select>
 <br>
 
+<p for="emissive_intensity" class="form-label">Emissive Intensity</p>
+<input type="range" class="form-range update_material" min="0" max="1000" value="0" id="emissive_intensity"><br>
 <p for="depthRange" class="form-label">Displacements Strength</p>
 <input type="range" class="form-range update_material" min="0" max="1000" value="0" id="depthRange"><br>
 <p for="roughnessRange" class="form-label">Roughness Scale ( Works only without Roughness Map! )</p>
@@ -58,12 +61,13 @@
 		query += "&transmittance_measurement_distance=" + $("#transparencyRange").val()/1000.0;
 		query += "&ior_constant=" + $("#ior_constant").val()/1000.0;
 		query += "&metallic_constant=" + $("#metallic_constant").val()/1000.0;
-
+		query += "&emissive_intensity=" + $("#emissive_intensity").val()/10.0;
 
 		$.get("/callback/update_material?" + query,function( response ) {
 			console.log( response )
 		});
 	});
 
+	update_roughness_texture
 </script>
 

@@ -114,6 +114,7 @@ body{
 	background-color: rgba(255, 255, 255, 0.5) !important;
 }
 
+
 .right-panel{
 	position: absolute;
 	background-color: rgba(0, 0, 0,0.6);
@@ -152,6 +153,22 @@ body{
 
 .textures-list{
 	color: white;
+}
+
+.install-ambientcg-material{
+	outline: none;
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+	color: white;
+	padding: 0px;
+	margin-top: 0px;
+	padding-top: 10px;
+	font-size: 10px;
+	text-align: center;
+}
+.install-ambientcg-material > img{
+	width: 90px;
+	height: 90px;
 }
 
 .textures-list > button{
