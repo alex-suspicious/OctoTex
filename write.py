@@ -6,6 +6,7 @@ from mods.controller import *
 from wand import image
 from usda import usda
 
+
 replacements = """#usda 1.0
 (
     upAxis = "Y"
@@ -130,6 +131,7 @@ def saveAllTextures(mod_dir, replacements_file):
                 f.write( "\n"+str(e) )
                 f.close()
 
+
             try:
                 already = hasherObj.saved(f"textures/processing/normals/{x.replace('.png','')}_normal.png")
                 if( not already ):
@@ -165,6 +167,7 @@ def saveAllTextures(mod_dir, replacements_file):
                 f = open("logs", "a")
                 f.write( "\n"+str(e) )
                 f.close()
+
 
 
             
@@ -252,3 +255,4 @@ def saveAllTextures(mod_dir, replacements_file):
 if __name__ == '__main__':
     mod_dir, replacements_file = modFolder()
     saveAllTextures(mod_dir, replacements_file)
+
