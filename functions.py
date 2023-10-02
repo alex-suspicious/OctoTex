@@ -25,6 +25,23 @@ import ai.PBR.eval_unbake as unbakes
 sys.path
 sys.path.append('./nvidia')
 from octahedral import *
+import clipboard
+from PIL import Image, ImageEnhance
+
+def load_single_capture( texture ):
+   loaded = loader.loadSingleTexture(texture)
+   if( loaded < 1 ):
+      return f"Oops, can't load the textures!"
+
+   return f"{loaded} textures loaded!"
+
+def get_clipboard():
+   tempTexture = clipboard.paste()
+   if( tempTexture.lower().isalnum() ):
+      num = loader.loadSingleTexture(tempTexture)
+      print(f"{tempTexture} info: {num}")
+
+   return tempTexture
 
 def update_config( upscaler ):
    config.upscale_model = upscaler
@@ -57,15 +74,35 @@ def get_upscale_models():
 
    return ",".join(array_models)
 
-def update_material( texture, mtype, displace_in, transmittance_measurement_distance, reflection_roughness_constant, ior_constant, metallic_constant  ):
+def update_material( texture, mtype, displace_in, transmittance_measurement_distance, reflection_roughness_constant, ior_constant, metallic_constant, emissive_intensity  ):
    f = open( f"materials/{texture}.mat" ,"w")
    f.write(f"""@{mtype}
 displace_in = {displace_in}
 transmittance_measurement_distance = {transmittance_measurement_distance}
 reflection_roughness_constant = {reflection_roughness_constant}
 ior_constant = {ior_constant}
-metallic_constant = {metallic_constant}""")
+metallic_constant = {metallic_constant}
+emissive_intensity = {emissive_intensity}""")
    f.close()
+
+
+def update_roughness_texture( texture, reflection_roughness_constant  ):
+   directory = f"textures/processing/old_roughness"
+   isExist = os.path.exists(directory)
+   if not isExist:
+      os.makedirs(directory)
+
+   isExist = os.path.exists(f"{directory}/{texture}.png")
+   if not isExist:
+      shutil.move(f"textures/processing/roughness/{texture}_rough.png", f"{directory}/{texture}.png")   
+
+   im = Image.open(f"{directory}/{texture}.png")
+   enhancer = ImageEnhance.Contrast(im)
+
+   factor = reflection_roughness_constant
+   im_output = enhancer.enhance(factor)
+   im_output.save(f"textures/processing/roughness/{texture}_rough.png")
+
 
 def get_material( texture  ):
    f = open( f"materials/{texture}.mat" ,"r")

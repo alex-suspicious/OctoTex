@@ -54,6 +54,27 @@ def loadTextures(loadDir, updateFunction = 0, show = 0, close = 0 ):
     hasherObj.saveJson()
     return success
 
+def loadSingleTexture(loadFile):
+    hasherObj = hasher()
+    loadFilePath = f"{config.rtx_remix_dir}/{loadDir}/{loadFile}.dds"
+
+
+    already = hasherObj.loaded(f"textures/processing/diffuse/{loadFile.replace('dds','png')}")
+    if( already ):
+        return 0
+
+    try:
+        with Image.open(loadFilePath) as img:
+            img.compression = "dxt5"
+        
+            img.save(f"textures/processing/diffuse/{x.replace('dds','png')}")
+            hasherObj.add_loaded(f"textures/processing/diffuse/{x.replace('dds','png')}")
+    except Exception as e:
+        return 0
+
+    hasherObj.saveJson()
+    return 1
+
 if __name__ == '__main__':
     mods = [f for f in pathlib.Path().glob(f"{config.rtx_remix_dir}/mods/*")]
     if( len(mods) > 0 ):

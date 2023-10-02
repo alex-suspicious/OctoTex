@@ -136,7 +136,7 @@ class LightspeedOctahedralConverter:
         array = np.array(octahedral_image)
         snorm_octahedrals = array.copy()
 
-        new_image = np.zeros( octahedral_image.size + (3,)) 
+        new_image = np.zeros( ( octahedral_image.size[1], octahedral_image.size[0], 3)) 
         new_image[:, :, 0] = snorm_octahedrals[:, :, 0]
         new_image[:, :, 1] = snorm_octahedrals[:, :, 1]
         new_image[:, :, 2] = 255
