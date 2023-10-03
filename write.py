@@ -192,12 +192,12 @@ def saveAllTextures(mod_dir, replacements_file):
             mat_to_edit["over Shader"]["asset inputs:metallic_texture"] = f"@./SubUSDs/textures/metallness/{mat_selected_name}.dds@"
             mat_to_edit["over Shader"]["asset inputs:height_texture"] = f"@./SubUSDs/textures/displacements/{mat_selected_name}.dds@"
 
-
+            temp_ref = {}
             if( material_properties[0] == "@glass" ):
                 if( f"custom_over mat_{mat_selected_name}" not in mat_names ):
-                    temp_ref = {}
                     temp_ref["references"] = "@./SubUSDs/AperturePBR_Translucent.usda@</Looks/mat_AperturePBR_Translucent>"
-                    RootNode_Looks[f"parameters_over mat_{mat_selected_name}"] = temp_ref
+                    if( RootNode_Looks.get(f"parameters_over mat_{mat_selected_name}") != None ):
+                        RootNode_Looks.pop(f"parameters_over mat_{mat_selected_name}")
                 
                 mat_to_edit["over Shader"]["uniform asset info:mdl:sourceAsset"] = "@AperturePBR_Translucent.mdl@"
             elif( material_properties[0] == "@emissive" ):
