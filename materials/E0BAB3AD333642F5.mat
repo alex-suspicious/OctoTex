@@ -1,7 +1,0 @@
-@opaque
-displace_in = 0.001
-transmittance_measurement_distance = 1
-reflection_roughness_constant = 0.212
-ior_constant = 0
-metallic_constant = 1
-emissive_intensity = 0
