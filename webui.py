@@ -8,12 +8,14 @@ import plugins
 from aiohttp import web
 
 import sys
+from PIL import Image, ImageEnhance
 import json
 import inspect
 sys.path.append('nvidia')
 
 from octahedral import *
 import webbrowser
+import io
 
 default_material = """@opaque
 displace_in = 0.05
@@ -206,21 +208,55 @@ async def processing_routing( request ):
 			pass
 			#print( str(e) )
 
+	downscale = False
+	if( "thumbnail" in requestNew ):
+		downscale = True
+
 	if( "image" in reqType or "octet" in reqType or "woff2" in reqType ):
-		try:
-			f = open("textures/" + requestNew, "rb")
-			file = f.read()
-			f.close()
-			return web.Response( body=file, content_type=reqType)
-		except Exception as e:
+		if( downscale ):
+			requestNew = requestNew.replace("thumbnail","upscaled")
+
 			try:
-				requestNew = requestNew.replace("upscaled","diffuse")
+				img = Image.open("textures/" + requestNew, mode='r')
+				img_byte_arr = io.BytesIO()
+
+				newsize = (110, 110)
+				img = img.resize(newsize)
+
+				img.save(img_byte_arr, format="png")
+				img_byte_arr = img_byte_arr.getvalue()
+
+				return web.Response( body=img_byte_arr, content_type=reqType)
+			except Exception as e:
+				try:
+					requestNew = requestNew.replace("upscaled","diffuse")
+					img = Image.open("textures/" + requestNew, mode='r')
+					img_byte_arr = io.BytesIO()
+
+					newsize = (110, 110)
+					img = img.resize(newsize)
+
+					img.save(img_byte_arr, format="png")
+					img_byte_arr = img_byte_arr.getvalue()
+
+					return web.Response( body=img_byte_arr, content_type=reqType)
+				except Exception as e:
+					print( e )
+		else:
+			try:
 				f = open("textures/" + requestNew, "rb")
 				file = f.read()
 				f.close()
 				return web.Response( body=file, content_type=reqType)
 			except Exception as e:
-				return
+				try:
+					requestNew = requestNew.replace("upscaled","diffuse")
+					f = open("textures/" + requestNew, "rb")
+					file = f.read()
+					f.close()
+					return web.Response( body=file, content_type=reqType)
+				except Exception as e:
+					return
 
 	try:
 		f = open("textures/" + requestNew, "r", encoding="utf8")

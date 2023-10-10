@@ -71,7 +71,7 @@ def generateRough(net, DIR_FROM, DIR_EVAL):
             im = Image.open(img_out_filename).convert("L")
             enhancer = ImageEnhance.Contrast(im)
 
-            factor = 1.25
+            factor = 1.3
             im_output = enhancer.enhance(factor)
             im_output.save(img_out_filename)
 
@@ -102,7 +102,7 @@ def generateRoughSingle(net, DIR_FROM, DIR_EVAL):
             im = Image.open(img_out_filename).convert("L")
             enhancer = ImageEnhance.Contrast(im)
 
-            factor = 1.25
+            factor = 1.1
             im_output = enhancer.enhance(factor)
             im_output.save(img_out_filename)
 

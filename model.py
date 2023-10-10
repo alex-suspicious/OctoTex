@@ -12,9 +12,9 @@ import json
 def convertUsdaTo( file, path, name ):
 	#mesh_27D87220F33D10E3.usda
 	f = open(file,"r")
-	data = f.read()
+	raw_data = f.read()
 	f.close()
-	data = data.replace("  ","")
+	data = raw_data.replace("  ","")
 
 
 	newFile = "# OctoTex"
@@ -37,13 +37,16 @@ def convertUsdaTo( file, path, name ):
 	faces_data = ["f"]
 
 	newFile += f"\ns 0"
-	newFile += f"\nusemtl Material"
+	newFile += f"\nusemtl {name}.mtl"
 
-	for x in range(len(faces)-1):
+	for x in range(len(faces)):
 		if( (x+1)%3 == 0 ):
-			faces_data.append(f" {faces[x]}\nf")
+			if( x < len(faces)-2 ):
+				faces_data.append(f" {faces[x]}/{faces[x]}\nf")
+			else:
+				faces_data.append(f" {faces[x]}/{faces[x]}")
 		else: 
-			faces_data.append(f" {faces[x]}")
+			faces_data.append(f" {faces[x]}/{faces[x]}")
 
 	faces_data = "".join(faces_data)
 	#faces_data = faces_data.replace(" /", " ")
@@ -53,6 +56,25 @@ def convertUsdaTo( file, path, name ):
 	f.write(newFile)
 	f.close()
 
+	material_name = raw_data.split("def Material \"")[1].split("\"")[0]
+
+	mtl_data = "# OctoTex MTL File: 'None'\n"
+	mtl_data += "# https://github.com/alex-suspicious/OctoTex\n"
+	mtl_data += "\n"
+	mtl_data += f"newmtl {name}.mtl\n"
+	mtl_data += "Ns 0.000000\n"
+	mtl_data += "Ka 1.000000 1.000000 1.000000\n"
+	mtl_data += "Ks 0.000000 0.000000 0.000000\n"
+	mtl_data += "Ke 0.000000 0.000000 0.000000\n"
+	mtl_data += "Ni 1.450000\n"
+	mtl_data += "d 1.000000\n"
+	mtl_data += "illum 1\n"
+	mtl_data += f"map_Kd ../textures/processing/diffuse/{material_name.replace('mat_','')}.png"
+
+
+	f = open(path.replace(".obj",".mtl"),"w")
+	f.write(mtl_data)
+	f.close()
 
 	#print(data)
 	#exit()
@@ -76,17 +98,17 @@ def load():
 				#if( already ):
 				#	continue
 
-				#try:
-				#stage = Usd.Stage.Open(f"{config.rtx_remix_dir}/{loadDir}/{x}")
-				#stage.Export(f"meshes/usda/{x.replace('usd','usda')}")
+				try:
+					stage = Usd.Stage.Open(f"{config.rtx_remix_dir}/{loadDir}/{x}")
+					stage.Export(f"meshes/usda/{x.replace('usd','usda')}")
 
-				hasherObj.add_loaded(f"{config.rtx_remix_dir}/{loadDir}/{x}")
-				convertUsdaTo(f"meshes/usda/{x.replace('usd','usda')}", f"meshes/{x.replace('usd','obj')}", x.replace('.usd',''))
-				success += 1
-				#except Exception as e:
-				#	f = open("logs", "a")
-				#	f.write( "\n"+str(e) )
-				#	f.close()
+					hasherObj.add_loaded(f"{config.rtx_remix_dir}/{loadDir}/{x}")
+					convertUsdaTo(f"meshes/usda/{x.replace('usd','usda')}", f"meshes/{x.replace('usd','obj')}", x.replace('.usd',''))
+					success += 1
+				except Exception as e:
+					f = open("logs", "a")
+					f.write( "\n"+str(e) )
+					f.close()
 
 
 		return success
