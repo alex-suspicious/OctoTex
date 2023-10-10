@@ -1,0 +1,72 @@
+#usda 1.0
+(
+    customLayerData = {
+        uint64 geometrydescriptor = 12422360940618931713
+        uint64 indices = 0
+        uint64 legacyindices = 0
+        uint64 legacypositions0 = 0
+        uint64 legacypositions1 = 0
+        uint64 positions = 10029191988331806422
+        uint64 texcoords = 13043689312344224923
+        uint64 vertexlayout = 5377511480456297298
+        uint64 vertexshader = 0
+    }
+    defaultPrim = "mesh_40AD711E374AD752"
+    doc = """Generated from Composed Stage of root layer /media/alex/659fae43-74ac-417d-a863-e458d68e104f/SteamLibrary/steamapps/common/Sonic Adventure DX/rtx-remix/captures/meshes/mesh_40AD711E374AD752.usd
+"""
+    metersPerUnit = 1
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "mesh_40AD711E374AD752"
+{
+    rel material:binding = </Looks/mat_2F7DAAA7D93D7D00>
+    token visibility = "inherited"
+
+    def Mesh "mesh"
+    {
+        uniform bool doubleSided = 0
+        int[] faceVertexCounts = [3, 3, 3, 3, 3, 3]
+        int[] faceVertexIndices = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+        normal3f[] normals = [(0.383029, -0.228052, 0.895143), (-0.636676, 0.033282, 0.770413), (-0.108914, -0.4352, 0.893722), (-0.999761, 0.021875, 0), (-0.999876, 0.015719, 0), (-0.636676, 0.033282, 0.770413), (-0.999761, 0.021875, 0), (-0.519944, 0.156171, -0.839803), (-0.636515, 0.032829, -0.770565), (-0.108721, -0.435754, -0.893475), (-0.636515, 0.032829, -0.770565), (0.382845, -0.228782, -0.895036), (-0.636676, 0.033282, 0.770413), (-0.519943, 0.156171, 0.839803), (-0.999761, 0.021875, 0), (-0.636515, 0.032829, -0.770565), (-0.999876, 0.015719, 0), (-0.999761, 0.021875, 0)]
+        uniform token orientation = "leftHanded"
+        point3f[] points = [(1.054077, 1.339417, 1.289455), (-1.083673, 1.202434, 1.07201), (-0.140656, 0.982702, 1.295828), (-2.084461, 3.268787, 0), (-1.625162, 1.451322, 0), (-1.083673, 1.202434, 1.07201), (-2.084461, 3.268787, 0), (-1.265457, 3.268787, -1.519184), (-1.083674, 1.202434, -1.07201), (-0.139938, 0.982341, -1.295188), (-1.083674, 1.202434, -1.07201), (1.054076, 1.339417, -1.289456), (-1.083673, 1.202434, 1.07201), (-1.265456, 3.268787, 1.519184), (-2.084461, 3.268787, 0), (-1.083674, 1.202434, -1.07201), (-1.625162, 1.451322, 0), (-2.084461, 3.268787, 0)]
+        color3f[] primvars:displayColor = [(0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375)] (
+            interpolation = "vertex"
+        )
+        texCoord2f[] primvars:st = [(0.98823535, 0.99215686), (0.91372555, 0.003921509), (0.9921569, 0.003921509), (0.003921569, 0.99607843), (0.003921569, 0.003921509), (0.909804, 0.003921509), (0.003921569, 0.99607843), (0.9960785, 0.99607843), (0.909804, 0.003921509), (0.9921569, 0.003921509), (0.9176471, 0.003921509), (0.9921569, 0.99607843), (0.909804, 0.003921509), (0.9960785, 0.99607843), (0.003921569, 0.99607843), (0.909804, 0.003921509), (0.003921569, 0.003921509), (0.003921569, 0.99607843)] (
+            interpolation = "vertex"
+        )
+        custom uniform bool remix_category:alpha_blend_to_cutout = 0
+        custom uniform bool remix_category:animated_water = 0
+        custom uniform bool remix_category:beam = 0
+        custom uniform bool remix_category:decal_dynamic = 0
+        custom uniform bool remix_category:decal_no_offset = 0
+        custom uniform bool remix_category:decal_single_offset = 0
+        custom uniform bool remix_category:decal_Static = 0
+        custom uniform bool remix_category:hidden = 0
+        custom uniform bool remix_category:ignore = 0
+        custom uniform bool remix_category:ignore_anti_culling = 0
+        custom uniform bool remix_category:ignore_lights = 0
+        custom uniform bool remix_category:ignore_motion_blur = 0
+        custom uniform bool remix_category:ignore_opacity_micromap = 0
+        custom uniform bool remix_category:particle = 0
+        custom uniform bool remix_category:sky = 0
+        custom uniform bool remix_category:terrain = 0
+        custom uniform bool remix_category:third_person_player_body = 0
+        custom uniform bool remix_category:third_person_player_model = 0
+        custom uniform bool remix_category:world_matte = 0
+        custom uniform bool remix_category:world_ui = 0
+        uniform token subdivisionScheme = "none"
+        token visibility = "inherited"
+    }
+}
+
+def "Looks"
+{
+    def Material "mat_2F7DAAA7D93D7D00"
+    {
+    }
+}
+

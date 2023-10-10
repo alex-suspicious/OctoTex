@@ -80,7 +80,7 @@ function loadMaterial( name ) {
 		updateThreeMaterial();
 		setTimeout(function() {
 			updateThreeMaterial();
-		},500);
+		},300);
 
 		console.log(splitted)
 	});
@@ -323,20 +323,22 @@ function updateList() {
 		var list = data.split(",");
 		$(".textures-list").html("");
 
+		if( list.length-1 < 1 ){
+			$.get( "/notextures.html", function( data ) {
+		  		$(".textures-list").append(data);
+			});
+			return;
+		}
+
 		for (var i = 0; i < list.length; i++) {
 	  		$(".textures-list").append(
 	  			`<button class="col-4 load-texture" name="`+list[i].split(".")[0]+`">
-	  				<img width="128" height="128" loading="lazy" src="/processing/upscaled/`+list[i]+`" >
+	  				<img width="128" height="128" loading="lazy" src="/processing/thumbnail/`+list[i]+`" >
 	  				<p>` + list[i].split(".")[0] + `</p>
 	  			</button>`
 	  		);
 		}
 
-		if( list.length-1 < 1 ){
-			$.get( "/notextures.html", function( data ) {
-		  		$(".textures-list").append(data);
-			});
-		}
 	});
 
 }
@@ -402,7 +404,7 @@ $(document).ready( function () {
 					setTimeout(function() {
 						makeTextureSelected( parent.attr("texture") );
 						loadMaterial( parent.attr("texture") );
-					},100);
+					},200);
 
 				}
 
@@ -458,6 +460,11 @@ $(function() {
 				prevHash = newHash;
 				makeTextureSelected( prevHash );
 				loadMaterial( prevHash );
+				
+				setTimeout(function() {
+					makeTextureSelected( parent.attr("texture") );
+					loadMaterial( parent.attr("texture") );
+				},200);
 			});
     });
 

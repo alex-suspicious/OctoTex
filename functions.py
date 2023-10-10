@@ -120,6 +120,12 @@ def normal_single( texture ):
    generate_normal(
       path,
       f"textures/processing/normals/{texture}_normal.png",0,1.5)
+
+   try:
+      os.remove(f"webui/textures/temp/{texture}_normal.png")
+   except Exception as e:
+      print(e)
+
    return "Done!"
 
 def roughness_single( texture ):
@@ -203,6 +209,7 @@ def remove_all_pbr( texture ):
    except Exception as e:
       print(e)
 
+
    return "Removed!"
 
 def ai_normal_single( texture ):
@@ -224,9 +231,13 @@ def ai_normal_single( texture ):
    norm_net.load_state_dict(checkpoint["model"])
 
    normals.generateNormSingle(norm_net,path,"textures/processing/normaldx")
-   for x in tqdm( os.listdir(f"textures/processing/normaldx/"), desc="Generating..." ):
-      if x.endswith(".png"):
-         LightspeedOctahedralConverter.convert_dx_file_to_octahedral(f"textures/processing/normaldx/{x}", f"textures/processing/normals/{x}")
+   LightspeedOctahedralConverter.convert_dx_file_to_octahedral(f"textures/processing/normaldx/{texture}_normal.png", f"textures/processing/normals/{texture}_normal.png")
+
+   try:
+      os.remove(f"webui/textures/temp/{texture}_normal.png")
+   except Exception as e:
+      print(e)
+
 
    return "Normal map is done!"
 

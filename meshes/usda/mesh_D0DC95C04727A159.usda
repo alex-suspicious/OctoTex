@@ -1,0 +1,52 @@
+#usda 1.0
+(
+    customLayerData = {
+        uint64 geometrydescriptor = 14525850584511603398
+        uint64 indices = 0
+        uint64 legacyindices = 0
+        uint64 legacypositions0 = 0
+        uint64 legacypositions1 = 0
+        uint64 positions = 18041039297374776038
+        uint64 texcoords = 15271948014557819069
+        uint64 vertexlayout = 5377511480456297298
+        uint64 vertexshader = 0
+    }
+    defaultPrim = "mesh_D0DC95C04727A159"
+    doc = """Generated from Composed Stage of root layer /media/alex/659fae43-74ac-417d-a863-e458d68e104f/SteamLibrary/steamapps/common/Sonic Adventure DX/rtx-remix/captures/meshes/mesh_D0DC95C04727A159.usd
+"""
+    metersPerUnit = 1
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "mesh_D0DC95C04727A159"
+{
+    rel material:binding = </Looks/mat_AEE9DF6D056AD6C6>
+    token visibility = "inherited"
+
+    def Mesh "mesh"
+    {
+        uniform bool doubleSided = 0
+        int[] faceVertexCounts = [3, 3]
+        int[] faceVertexIndices = [0, 1, 2, 3, 4, 5]
+        normal3f[] normals = [(0.494789, 0.869013, -0.000076), (0.350264, 0.868694, -0.350265), (0, 1, 0), (-0.494789, 0.869013, 0.000076), (-0.350264, 0.868694, 0.350265), (0, 1, 0)]
+        uniform token orientation = "leftHanded"
+        point3f[] points = [(8.011412, 24.62489, 0), (5.664916, 24.62489, -5.682445), (0, 26.77063, 0), (-8.011412, 24.62489, 0), (-5.664916, 24.62489, 5.682445), (0, 26.77063, 0)]
+        color3f[] primvars:displayColor = [(0.6953125, 0.6953125, 0.6953125), (0.6953125, 0.6953125, 0.6953125), (0.6953125, 0.6953125, 0.6953125), (0.6953125, 0.6953125, 0.6953125), (0.6953125, 0.6953125, 0.6953125), (0.6953125, 0.6953125, 0.6953125)] (
+            interpolation = "vertex"
+        )
+        texCoord2f[] primvars:st = [(0.011764707, 0.015686214), (0.9843138, 0.015686214), (0.48235297, 0.95686275), (0.011764707, 0.015686214), (0.9843138, 0.015686214), (0.48235297, 0.95686275)] (
+            interpolation = "vertex"
+        )
+        uniform token subdivisionScheme = "none"
+        token visibility = "inherited"
+    }
+}
+
+def "Looks"
+{
+    def Material "mat_AEE9DF6D056AD6C6"
+    {
+    }
+}
+

@@ -1,0 +1,12 @@
+# OctoTex MTL File: 'None'
+# https://github.com/alex-suspicious/OctoTex
+
+newmtl mesh_45C21ECCDD39DD74.mtl
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd ../textures/processing/diffuse/811AF8F6839E6EF8.png

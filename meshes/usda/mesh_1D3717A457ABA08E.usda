@@ -1,0 +1,72 @@
+#usda 1.0
+(
+    customLayerData = {
+        uint64 geometrydescriptor = 7227271387554197639
+        uint64 indices = 0
+        uint64 legacyindices = 0
+        uint64 legacypositions0 = 0
+        uint64 legacypositions1 = 0
+        uint64 positions = 5532878547213330577
+        uint64 texcoords = 14849616286340261048
+        uint64 vertexlayout = 5377511480456297298
+        uint64 vertexshader = 0
+    }
+    defaultPrim = "mesh_1D3717A457ABA08E"
+    doc = """Generated from Composed Stage of root layer /media/alex/659fae43-74ac-417d-a863-e458d68e104f/SteamLibrary/steamapps/common/Sonic Adventure DX/rtx-remix/captures/meshes/mesh_1D3717A457ABA08E.usd
+"""
+    metersPerUnit = 1
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "mesh_1D3717A457ABA08E"
+{
+    rel material:binding = </Looks/mat_F69C67F51209EA95>
+    token visibility = "inherited"
+
+    def Mesh "mesh"
+    {
+        uniform bool doubleSided = 0
+        int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3]
+        int[] faceVertexIndices = [0, 1, 2, 1, 3, 2, 2, 3, 4, 3, 5, 4, 4, 5, 6, 5, 7, 6, 6, 7, 8, 7, 9, 8]
+        normal3f[] normals = [(-0.772906, 0.001657, 0.634518), (-0.772906, 0.001657, 0.634518), (-0.805577, 0.350278, 0.477861), (-0.816222, -0.347744, 0.461362), (-0.834856, 0.550188, 0.017583), (-0.853563, -0.520826, 0.013016), (-0.812674, 0.370915, -0.449425), (-0.820124, -0.369933, -0.436515), (-0.762677, -0.005007, -0.64676), (-0.762677, -0.005007, -0.64676)]
+        uniform token orientation = "leftHanded"
+        point3f[] points = [(0.587099, -0.074464, 0.505395), (0.587099, -0.074464, 0.505395), (0.568, 0.338725, 0.361306), (0.567022, -0.468063, 0.375125), (0.548599, 0.514164, -0.01001), (0.550719, -0.623737, -0.004281), (0.558497, 0.346863, -0.397643), (0.558689, -0.476776, -0.39641), (0.585484, -0.078914, -0.555975), (0.585484, -0.078914, -0.555975)]
+        color3f[] primvars:displayColor = [(0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375)] (
+            interpolation = "vertex"
+        )
+        texCoord2f[] primvars:st = [(0.49803925, 0), (0.49803925, 0), (0.14901961, 0.15294111), (0.8470589, 0.15294111), (0, 0.50196075), (1, 0.50196075), (0.14901961, 0.8509804), (0.8470589, 0.8509804), (0.49803925, 1), (0.49803925, 1)] (
+            interpolation = "vertex"
+        )
+        custom uniform bool remix_category:alpha_blend_to_cutout = 0
+        custom uniform bool remix_category:animated_water = 0
+        custom uniform bool remix_category:beam = 0
+        custom uniform bool remix_category:decal_dynamic = 0
+        custom uniform bool remix_category:decal_no_offset = 0
+        custom uniform bool remix_category:decal_single_offset = 0
+        custom uniform bool remix_category:decal_Static = 0
+        custom uniform bool remix_category:hidden = 0
+        custom uniform bool remix_category:ignore = 0
+        custom uniform bool remix_category:ignore_anti_culling = 0
+        custom uniform bool remix_category:ignore_lights = 0
+        custom uniform bool remix_category:ignore_motion_blur = 0
+        custom uniform bool remix_category:ignore_opacity_micromap = 0
+        custom uniform bool remix_category:particle = 0
+        custom uniform bool remix_category:sky = 0
+        custom uniform bool remix_category:terrain = 0
+        custom uniform bool remix_category:third_person_player_body = 0
+        custom uniform bool remix_category:third_person_player_model = 0
+        custom uniform bool remix_category:world_matte = 0
+        custom uniform bool remix_category:world_ui = 0
+        uniform token subdivisionScheme = "none"
+        token visibility = "inherited"
+    }
+}
+
+def "Looks"
+{
+    def Material "mat_F69C67F51209EA95"
+    {
+    }
+}
+

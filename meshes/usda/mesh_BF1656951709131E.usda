@@ -1,0 +1,52 @@
+#usda 1.0
+(
+    customLayerData = {
+        uint64 geometrydescriptor = 14525850584511603398
+        uint64 indices = 0
+        uint64 legacyindices = 0
+        uint64 legacypositions0 = 0
+        uint64 legacypositions1 = 0
+        uint64 positions = 10327177663467897608
+        uint64 texcoords = 2889107477657824704
+        uint64 vertexlayout = 5377511480456297298
+        uint64 vertexshader = 0
+    }
+    defaultPrim = "mesh_BF1656951709131E"
+    doc = """Generated from Composed Stage of root layer /media/alex/659fae43-74ac-417d-a863-e458d68e104f/SteamLibrary/steamapps/common/Sonic Adventure DX/rtx-remix/captures/meshes/mesh_BF1656951709131E.usd
+"""
+    metersPerUnit = 1
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "mesh_BF1656951709131E"
+{
+    rel material:binding = </Looks/mat_6E47D4F74848DA40>
+    token visibility = "inherited"
+
+    def Mesh "mesh"
+    {
+        uniform bool doubleSided = 0
+        int[] faceVertexCounts = [3, 3]
+        int[] faceVertexIndices = [0, 1, 2, 3, 4, 5]
+        normal3f[] normals = [(0.14229, 0.974486, -0.173581), (0.114845, 0.970485, -0.21206), (0.120431, 0.971473, -0.204296), (0.120431, 0.971473, -0.204296), (0.147578, 0.975008, -0.166071), (0.14229, 0.974486, -0.173581)]
+        uniform token orientation = "leftHanded"
+        point3f[] points = [(2.950393, -0.654154, -1.084913), (-0.00149, -0.200988, -0.609659), (-0.013809, 0.140546, 0.946692), (-0.013809, 0.140546, 0.946692), (4.005667, -0.761536, -0.777593), (2.950393, -0.654154, -1.084913)]
+        color3f[] primvars:displayColor = [(0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375), (0.99609375, 0.99609375, 0.99609375)] (
+            interpolation = "vertex"
+        )
+        texCoord2f[] primvars:st = [(0.7960785, 0.3607843), (0.011764707, 0.015686214), (0.011764707, 0.9882353), (0.011764707, 0.9882353), (0.9843138, 0.83137256), (0.7960785, 0.3607843)] (
+            interpolation = "vertex"
+        )
+        uniform token subdivisionScheme = "none"
+        token visibility = "inherited"
+    }
+}
+
+def "Looks"
+{
+    def Material "mat_6E47D4F74848DA40"
+    {
+    }
+}
+

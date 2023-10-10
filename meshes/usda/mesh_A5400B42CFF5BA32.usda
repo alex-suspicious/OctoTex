@@ -1,0 +1,52 @@
+#usda 1.0
+(
+    customLayerData = {
+        uint64 geometrydescriptor = 1318833379442827442
+        uint64 indices = 0
+        uint64 legacyindices = 0
+        uint64 legacypositions0 = 0
+        uint64 legacypositions1 = 0
+        uint64 positions = 3025809232940611760
+        uint64 texcoords = 3069950974655029909
+        uint64 vertexlayout = 13726854045022095689
+        uint64 vertexshader = 0
+    }
+    defaultPrim = "mesh_A5400B42CFF5BA32"
+    doc = """Generated from Composed Stage of root layer /media/alex/659fae43-74ac-417d-a863-e458d68e104f/SteamLibrary/steamapps/common/Sonic Adventure DX/rtx-remix/captures/meshes/mesh_A5400B42CFF5BA32.usd
+"""
+    metersPerUnit = 1
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "mesh_A5400B42CFF5BA32"
+{
+    rel material:binding = </Looks/mat_1481133353192D22>
+    token visibility = "inherited"
+
+    def Mesh "mesh"
+    {
+        uniform bool doubleSided = 0
+        int[] faceVertexCounts = [3, 3]
+        int[] faceVertexIndices = [0, 1, 2, 1, 3, 2]
+        normal3f[] normals
+        uniform token orientation = "leftHanded"
+        point3f[] points = [(-0.5, -0.5, 0), (0.5, -0.5, 0), (-0.5, 0.5, 0), (0.5, 0.5, 0)]
+        color3f[] primvars:displayColor = [(0.89453125, 0.89453125, 0.99609375), (0.89453125, 0.89453125, 0.99609375), (0.89453125, 0.89453125, 0.99609375), (0.89453125, 0.89453125, 0.99609375)] (
+            interpolation = "vertex"
+        )
+        texCoord2f[] primvars:st = [(0, 0), (1, 0), (0, 1), (1, 1)] (
+            interpolation = "vertex"
+        )
+        uniform token subdivisionScheme = "none"
+        token visibility = "inherited"
+    }
+}
+
+def "Looks"
+{
+    def Material "mat_1481133353192D22"
+    {
+    }
+}
+
