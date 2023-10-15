@@ -1,0 +1,11 @@
+
+materials/*
+textures/*
+
+webui/textures/temp/*
+
+hash/hashes.json
+logs
+
+__pycache__/
+ai/pbr/checkpoints/*
