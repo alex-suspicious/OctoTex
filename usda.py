@@ -55,8 +55,12 @@ class usda:
 
 
 		tempData = re.sub(r'"over (.+)":\n{\n"references": "(.+)"\n}', r'"parameters_over \1":\n{\n"references": "\2"\n},\n"over \1":',tempData)
+		#tempData = tempData.replace("\"\"def","\"def")
+		#tempData = tempData.replace("\":\": ","\": ")
+		#tempData = tempData.replace("\"[\"","[\"")
+		#tempData = tempData.replace("\"]\"","\"]")
 
-		#print( tempData )
+		print( tempData )
 		#tempData = tempData.replace(":\n{",": {")
 		return "{" + tempData + "}"
 

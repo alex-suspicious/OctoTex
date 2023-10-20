@@ -88,6 +88,9 @@ def load():
 		from pxr import Usd, UsdGeom
 		loadDir = "captures/meshes"
 
+		#stage = Usd.Stage.Open(f"{config.rtx_remix_dir}/captures/capture_2023-09-15_11-28-56.usd")
+		#stage.Export(f"{config.rtx_remix_dir}/captures/capture_2023-09-15_11-28-56.usda")
+
 		hasherObj = hasher()
 		dirList = os.listdir(f"{config.rtx_remix_dir}/{loadDir}/")
 		success = 0
