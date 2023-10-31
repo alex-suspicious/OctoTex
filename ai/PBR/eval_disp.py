@@ -20,6 +20,14 @@ CROP = 1024
 
 #%%
 transform = transforms.Compose([
+    transforms.Resize(CROP),
+    transforms.CenterCrop(CROP),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5)) # (input - mean) / std
+    # outputs range from -1 to 1
+])
+
+transformDoNotResize = transforms.Compose([
     #transforms.Resize(CROP),
     #transforms.CenterCrop(CROP),
     transforms.ToTensor(),
@@ -42,7 +50,12 @@ class TestDataset(Dataset):
 
     def __getitem__(self, i):
         img = Image.open(self.file_list[i]).convert('RGB')
-        img = transform(img)
+        h, w = img.size
+
+        if( w < 256 or h < 256 or w-300 > h or h-300 > w or w > 1024 or h > 1024 ):
+            img = transform(img)
+        else:
+            img = transformDoNotResize(img)
 
         return img, self.names[i]
 

@@ -10,7 +10,7 @@ import gc
 import config
 from hash.hasher import *
 from tqdm import tqdm
-
+import shutil
 
 def upscaleAll():
     hasherObj = hasher()
@@ -55,7 +55,8 @@ def upscaleAll():
             output, _ = upsampler.enhance(img, outscale=4)
         except RuntimeError as error:
             print('Error', error)
-            print('If you encounter CUDA out of memory, try to set --tile with a smaller number.')
+            print('If you encounter CUDA out of memory, just moving the file...')
+            shutil.move(f"textures/processing/diffuse/{imgname}.{extension}", f"textures/processing/upscaled/{imgname}.{extension}")
         except Exception as e:
             print(e)
         else:

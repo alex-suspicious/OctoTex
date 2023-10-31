@@ -33,7 +33,7 @@ def upscaleTextures2X():
 	for x in tqdm( dirList, desc="Moving upscaled to diffuse..." ):
 		if x.endswith(".png"):
 			shutil.move(f"textures/processing/upscaled/{x}", f"textures/processing/diffuse/{x}")
-
+	
 	print("Upscaling second time")
 	if( "Real" in config.upscale_model ):
 		ai.RealESRGAN.upscaler.upscaleAll()

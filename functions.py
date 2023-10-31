@@ -437,11 +437,43 @@ def generate_pbr():
 def generate_pbr_ai():
    import gc
    import torch
+
+   import gc
+   import torch
    torch.cuda.empty_cache()
    gc.collect()
 
+   #device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+   #PATH_CHK = "ai/PBR/checkpoints/unbake/unbake_net_last.pth"
+
+   #norm_net = Unet().to(device)
+   #checkpoint = torch.load(PATH_CHK)
+   #norm_net.load_state_dict(checkpoint["model"])
+
+
+   #for x in tqdm( os.listdir(f"textures/processing/upscaled/"), desc="Generating..." ):
+      #if x.endswith(".png"):
+         #texture = x.replace(".png","")
+
+         #textureUnbaked = os.path.exists(f"textures/processing/baked/{texture}.png")
+         #isExist = os.path.exists("textures/processing/baked")
+         #if not isExist:
+         #   os.makedirs("textures/processing/baked")
+
+         #if( not textureUnbaked ):
+         #   shutil.move(f"textures/processing/upscaled/{texture}.png", f"textures/processing/baked/{texture}.png")   
+
+         #unbakes.generateUnbakeSingle(norm_net,f"textures/processing/baked/{texture}.png","textures/processing/upscaled")
+
+
+   torch.cuda.empty_cache()
+   gc.collect()
+
+
    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
    PATH_CHK = "ai/PBR/checkpoints/norm/norm_net_last.pth"
+
+   
 
    norm_net = Unet().to(device)
    checkpoint = torch.load(PATH_CHK)
