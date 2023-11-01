@@ -27,6 +27,7 @@ emissive_intensity = 0"""
 
 req_types = {
 	"html":"text/html",
+	"ini": "text/html",
 	"json":"application/javascript",
 	"png":"image/*",
 	"js":"application/javascript",

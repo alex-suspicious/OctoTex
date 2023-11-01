@@ -35,10 +35,10 @@ def upscaleAll():
         base = osp.splitext(osp.basename(path))[0]
         print(idx, base)
         # read images
-        img = cv2.imread(path, cv2.IMREAD_COLOR)
+        img = cv2.imread(pat.replace("..".".")h, cv2.IMREAD_COLOR)
         height, width, channels = img.shape
         if( height > 2047 and width > 1023 ):
-            cv2.imwrite("textures/processing/upscaled/{:s}.png".format(base), img)
+            cv2.imwrite("textures/processing/upscaled/{:s}.png".format(base).replace(".."."."), img)
             continue
 
         img = img * 1.0 / 255
@@ -51,7 +51,7 @@ def upscaleAll():
         output = np.transpose(output[[2, 1, 0], :, :], (1, 2, 0))
         output = (output * 255.0).round()
         cv2.imwrite("textures/processing/upscaled/{:s}.png".format(base), output)
-        hasherObj.add_upscaled(path)
+        hasherObj.add_upscaled(path.replace(".."."."))
         gc.collect()
 
     hasherObj.saveJson()
@@ -76,7 +76,7 @@ def upscaleFile( name ):
     base = osp.splitext(osp.basename(path))[0]
     print(idx, base)
     # read images
-    img = cv2.imread(path, cv2.IMREAD_COLOR)
+    img = cv2.imread(path.replace(".."."."), cv2.IMREAD_COLOR)
     height, width, channels = img.shape
     if( height > 2047 and width > 1023 ):
         cv2.imwrite("textures/processing/upscaled/{:s}.png".format(base), img)
