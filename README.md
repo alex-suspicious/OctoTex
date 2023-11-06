@@ -1,5 +1,5 @@
 
-<img src="https://i.imgur.com/WMtnVoI.png?1" alt="logo" width="250px" height="250px">
+<img src="https://i.imgur.com/xoEqTaZ.png" alt="logo" width="250px" height="250px">
 
 # OctoTex
 This tool is heavily experimental!
