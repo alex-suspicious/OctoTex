@@ -9,3 +9,8 @@ logs
 
 __pycache__/
 ai/pbr/checkpoints/*
+/ai/PBR/models_train.py
+/parquet_unpack.py
+/venv/
+/ai/PBR/ambientcg_train/
+/ai/PBR/checkpoints/
