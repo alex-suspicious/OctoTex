@@ -16,4 +16,3 @@ beautifulsoup4
 requests
 fake-useragent
 clipboard
-io
