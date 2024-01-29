@@ -2,7 +2,7 @@
 <img src="https://i.imgur.com/xoEqTaZ.png" alt="logo" width="250px" height="250px">
 
 # Re-Tex - supporting OctoTex
-This tool is heavily experimental!
+This tool will be heavily upgraded!
 
 ## Description
 This tool allows you to load captured textures from rtx remix, convert them to png, upscale with ESRGAN or RealESRGAN, generate octahedral normals, roughness, metalness maps, and write it back to the existing rtx remix mod, or create a new one ( recomended ). 
