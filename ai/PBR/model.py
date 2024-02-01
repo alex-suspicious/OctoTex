@@ -169,6 +169,7 @@ class NLayerDiscriminator(nn.Module):
         """forward through discriminator"""
         return self.model(input)
 
+
 def double_conv(in_channels, out_channels):
     return nn.Sequential(
         nn.Conv2d(in_channels, out_channels, 3, padding=1),
@@ -181,9 +182,9 @@ def double_conv(in_channels, out_channels):
     )
 
 
-class Unet(nn.Module):
+class OLDPBR(nn.Module):
     def __init__(self, d=64, out_channels=3):
-        super(Unet, self).__init__()
+        super(OLDPBR, self).__init__()
         self.conv1 = nn.Conv2d(3, d, 4, 2, 1)
         self.conv2 = nn.Conv2d(d, d * 2, 4, 2, 1)
         self.conv2_bn = nn.BatchNorm2d(d * 2)
@@ -216,7 +217,7 @@ class Unet(nn.Module):
         self.deconv8 = nn.Sequential(
             nn.ConvTranspose2d(d * 2, out_channels, 4, 2, 1),
             nn.Tanh()
-            )
+        )
 
     def weight_init(self, mean, std):
         for m in self._modules:
@@ -248,8 +249,9 @@ class Unet(nn.Module):
         d7 = self.deconv7_bn(self.deconv7(F.relu(d6)))
         d7 = torch.cat([d7, e1], 1)
         d8 = self.deconv8(F.relu(d7))
-        
+
         return d8
+
 
 def normal_init(m, mean, std):
     if isinstance(m, nn.ConvTranspose2d) or isinstance(m, nn.Conv2d):

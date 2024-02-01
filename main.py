@@ -22,7 +22,7 @@ from tqdm import tqdm
 
 from zipfile import ZipFile
 
-from ai.PBR.model import Unet
+from ai.PBR.model import OLDPBR
 import ai.PBR.eval_disp as displacements
 import ai.PBR.eval_norm as normals
 import ai.PBR.eval_rough as roughness
@@ -84,7 +84,7 @@ def aiGenerateDisplacements():
 	device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 	PATH_CHK = "ai/PBR/checkpoints/disp/disp_net_last.pth"
 
-	norm_net = Unet().to(device)
+	norm_net = OLDPBR().to(device)
 	checkpoint = torch.load(PATH_CHK)
 	norm_net.load_state_dict(checkpoint["model"])
 
@@ -103,7 +103,7 @@ def aiGenerateRoughness():
 	device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 	PATH_CHK = "ai/PBR/checkpoints/rough/rough_net_last.pth"
 
-	norm_net = Unet().to(device)
+	norm_net = OLDPBR().to(device)
 	checkpoint = torch.load(PATH_CHK)
 	norm_net.load_state_dict(checkpoint["model"])
 
@@ -122,7 +122,7 @@ def aiGenerateNormals():
 	device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 	PATH_CHK = "ai/PBR/checkpoints/norm/norm_net_last.pth"
 
-	norm_net = Unet().to(device)
+	norm_net = OLDPBR().to(device)
 	checkpoint = torch.load(PATH_CHK)
 	norm_net.load_state_dict(checkpoint["model"])
 

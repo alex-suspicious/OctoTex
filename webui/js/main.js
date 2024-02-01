@@ -64,7 +64,7 @@ function updateThreeMaterial() {
 }
 
 function loadMaterial( name ) {
-	const diffuse = textureLoader.load( 'processing/upscaled/'+name+'.png' );
+	const diffuse = textureLoader.load( 'processing/diffuse/'+name+'.png' );
 
 	
 	$.get( "/callback/get_material?texture=" + name, function( data ) {

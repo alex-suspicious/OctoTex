@@ -53,7 +53,7 @@ def generateRough(net, DIR_FROM, DIR_EVAL):
     # print(batch_size)
     testloader = DataLoader(data_test, batch_size=1, shuffle=False)
 
-    print("\nOutput disp files...")
+    print("\nProcessing roughness files...")
 
     net.eval()
     with torch.no_grad():
@@ -71,7 +71,7 @@ def generateRough(net, DIR_FROM, DIR_EVAL):
 
             factor = 1.5
             im_output = cont.enhance(factor)
-            im_output = im_output.filter(ImageFilter.GaussianBlur)
+            im_output = im_output.filter(ImageFilter.GaussianBlur(1))
             im_output.save(img_out_filename)
 
     print("Done!")
@@ -86,7 +86,7 @@ def generateRoughSingle(net, DIR_FROM, DIR_EVAL):
     # print(batch_size)
     testloader = DataLoader(data_test, batch_size=1, shuffle=False)
 
-    print("\nOutput disp files...")
+    print("\nProcessing roughness files...")
 
     net.eval()
     with torch.no_grad():

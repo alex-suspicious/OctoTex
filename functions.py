@@ -17,13 +17,13 @@ from generation.normals import *
 from generation.metalness import *
 from generation.roughness import *
 
-from ai.PBR.model import Unet, PBR
+from ai.PBR.model import PBR, OLDPBR
 import ai.PBR.eval_disp as displacements
 import ai.PBR.eval_norm as normals
 import ai.PBR.eval_rough as roughness
 import ai.PBR.eval_unbake as unbakes
+from nvidia.octahedral import LightspeedOctahedralConverter
 
-sys.path
 sys.path.append('./nvidia')
 from octahedral import *
 import clipboard
@@ -40,7 +40,7 @@ def load_single_capture(texture):
 
 def get_clipboard():
     tempTexture = clipboard.paste()
-    if (tempTexture.lower().isalnum()):
+    if tempTexture.lower().isalnum():
         num = loader.loadSingleTexture(tempTexture)
         print(f"{tempTexture} info: {num}")
 
@@ -117,10 +117,10 @@ def get_material(texture):
 
 
 def normal_single(texture):
-    textureUpscaled = os.path.exists(f"textures/processing/upscaled/{texture}.png")
+    textureUpscaled = os.path.exists(f"textures/processing/diffuse/{texture}.png")
     path = f"textures/processing/diffuse/{texture}.png"
     if (textureUpscaled):
-        path = f"textures/processing/upscaled/{texture}.png"
+        path = f"textures/processing/diffuse/{texture}.png"
 
     generate_normal(
         path,
@@ -135,10 +135,10 @@ def normal_single(texture):
 
 
 def roughness_single(texture):
-    textureUpscaled = os.path.exists(f"textures/processing/upscaled/{texture}.png")
+    textureUpscaled = os.path.exists(f"textures/processing/diffuse/{texture}.png")
     path = f"textures/processing/diffuse/{texture}.png"
     if (textureUpscaled):
-        path = f"textures/processing/upscaled/{texture}.png"
+        path = f"textures/processing/diffuse/{texture}.png"
 
     generate_roughness(
         path,
@@ -147,10 +147,10 @@ def roughness_single(texture):
 
 
 def metalness_single(texture):
-    textureUpscaled = os.path.exists(f"textures/processing/upscaled/{texture}.png")
+    textureUpscaled = os.path.exists(f"textures/processing/diffuse/{texture}.png")
     path = f"textures/processing/diffuse/{texture}.png"
     if (textureUpscaled):
-        path = f"textures/processing/upscaled/{texture}.png"
+        path = f"textures/processing/diffuse/{texture}.png"
 
     generate_metalness(
         path,
@@ -159,7 +159,7 @@ def metalness_single(texture):
 
 
 def textures_list():
-    Upscaled = os.listdir("textures/processing/upscaled/")
+    Upscaled = os.listdir("textures/processing/diffuse/")
     Diffuse = os.listdir("textures/processing/diffuse/")
     array_files = []
 
@@ -190,7 +190,7 @@ def tabs_list():
 
 
 def unupscale(texture):
-    os.remove(f"textures/processing/upscaled/{texture}.png")
+    os.remove(f"textures/processing/diffuse/{texture}.png")
     return "Removed!"
 
 
@@ -224,10 +224,10 @@ def remove_all_pbr(texture):
 
 
 def ai_normal_single(texture):
-    textureUpscaled = os.path.exists(f"textures/processing/upscaled/{texture}.png")
+    textureUpscaled = os.path.exists(f"textures/processing/diffuse/{texture}.png")
     path = f"textures/processing/diffuse/{texture}.png"
     if (textureUpscaled):
-        path = f"textures/processing/upscaled/{texture}.png"
+        path = f"textures/processing/diffuse/{texture}.png"
 
     import gc
     import torch
@@ -237,7 +237,7 @@ def ai_normal_single(texture):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     PATH_CHK = "ai/PBR/checkpoints/norm/norm_net_last.pth"
 
-    norm_net = Unet().to(device)
+    norm_net = PBR().to(device)
     checkpoint = torch.load(PATH_CHK)
     norm_net.load_state_dict(checkpoint["model"])
 
@@ -260,7 +260,7 @@ def ai_unbake_single(texture):
         os.makedirs("textures/processing/baked")
 
     if (not textureUnbaked):
-        shutil.move(f"textures/processing/upscaled/{texture}.png", f"textures/processing/baked/{texture}.png")
+        shutil.move(f"textures/processing/diffuse/{texture}.png", f"textures/processing/baked/{texture}.png")
 
     import gc
     import torch
@@ -270,20 +270,20 @@ def ai_unbake_single(texture):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     PATH_CHK = "ai/PBR/checkpoints/unbake/unbake_net_last.pth"
 
-    norm_net = Unet().to(device)
+    norm_net = PBR().to(device)
     checkpoint = torch.load(PATH_CHK)
     norm_net.load_state_dict(checkpoint["model"])
 
-    unbakes.generateUnbakeSingle(norm_net, f"textures/processing/baked/{texture}.png", "textures/processing/upscaled")
+    unbakes.generateUnbakeSingle(norm_net, f"textures/processing/baked/{texture}.png", "textures/processing/diffuse")
 
     return "Unbaking is done!"
 
 
 def ai_roughness_single(texture):
-    textureUpscaled = os.path.exists(f"textures/processing/upscaled/{texture}.png")
+    textureUpscaled = os.path.exists(f"textures/processing/diffuse/{texture}.png")
     path = f"textures/processing/diffuse/{texture}.png"
     if (textureUpscaled):
-        path = f"textures/processing/upscaled/{texture}.png"
+        path = f"textures/processing/diffuse/{texture}.png"
 
     import gc
     import torch
@@ -293,7 +293,7 @@ def ai_roughness_single(texture):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     PATH_CHK = "ai/PBR/checkpoints/rough/rough_net_last.pth"
 
-    norm_net = Unet().to(device)
+    norm_net = PBR(8).to(device)
     checkpoint = torch.load(PATH_CHK)
     norm_net.load_state_dict(checkpoint["model"])
 
@@ -302,10 +302,10 @@ def ai_roughness_single(texture):
 
 
 def ai_parallax_single(texture):
-    textureUpscaled = os.path.exists(f"textures/processing/upscaled/{texture}.png")
+    textureUpscaled = os.path.exists(f"textures/processing/diffuse/{texture}.png")
     path = f"textures/processing/diffuse/{texture}.png"
     if (textureUpscaled):
-        path = f"textures/processing/upscaled/{texture}.png"
+        path = f"textures/processing/diffuse/{texture}.png"
 
     import gc
     import torch
@@ -315,7 +315,7 @@ def ai_parallax_single(texture):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     PATH_CHK = "ai/PBR/checkpoints/disp/disp_net_last.pth"
 
-    norm_net = Unet().to(device)
+    norm_net = PBR().to(device)
     checkpoint = torch.load(PATH_CHK)
     norm_net.load_state_dict(checkpoint["model"])
 
@@ -342,7 +342,7 @@ def test(texture):
 
 def upscale_single4(texture):
     try:
-        if ("Real" in config.upscale_model):
+        if "Real" in config.upscale_model:
             ai.RealESRGAN.upscaler.upscaleFile(texture)
         else:
             ai.ESRGAN.upscaler.upscaleFile(texture)
@@ -366,7 +366,7 @@ def upscale_single8(texture):
             os.makedirs("textures/processing/lowres")
 
         shutil.move(f"textures/processing/diffuse/{texture}.png", f"textures/processing/lowres/{texture}.png")
-        shutil.move(f"textures/processing/upscaled/{texture}.png", f"textures/processing/diffuse/{texture}.png")
+        shutil.move(f"textures/processing/diffuse/{texture}.png", f"textures/processing/diffuse/{texture}.png")
 
         print("Upscaling second time")
         if ("Real" in config.upscale_model):
@@ -409,6 +409,13 @@ def load_captures():
         return f"Oops, can't load the textures!"
 
     return f"{loaded} textures loaded!"
+
+
+def delete_texs():
+    import shutil
+    shutil.rmtree("./textures/processing")
+    shutil.rmtree("./materials")
+    clear_hashes()
 
 
 def write_mod():
@@ -458,43 +465,17 @@ def generate_pbr_ai():
     import gc
     import torch
 
-    import gc
-    import torch
-    torch.cuda.empty_cache()
-    gc.collect()
-
-    # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    # PATH_CHK = "ai/PBR/checkpoints/unbake/unbake_net_last.pth"
-
-    # norm_net = Unet().to(device)
-    # checkpoint = torch.load(PATH_CHK)
-    # norm_net.load_state_dict(checkpoint["model"])
-
-    # for x in tqdm( os.listdir(f"textures/processing/upscaled/"), desc="Generating..." ):
-    # if x.endswith(".png"):
-    # texture = x.replace(".png","")
-
-    # textureUnbaked = os.path.exists(f"textures/processing/baked/{texture}.png")
-    # isExist = os.path.exists("textures/processing/baked")
-    # if not isExist:
-    #   os.makedirs("textures/processing/baked")
-
-    # if( not textureUnbaked ):
-    #   shutil.move(f"textures/processing/upscaled/{texture}.png", f"textures/processing/baked/{texture}.png")
-
-    # unbakes.generateUnbakeSingle(norm_net,f"textures/processing/baked/{texture}.png","textures/processing/upscaled")
-
     torch.cuda.empty_cache()
     gc.collect()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     PATH_CHK = "ai/PBR/checkpoints/norm/norm_net_last.pth"
 
-    norm_net = Unet().to(device)
+    norm_net = OLDPBR().to(device)
     checkpoint = torch.load(PATH_CHK)
     norm_net.load_state_dict(checkpoint["model"])
 
-    normals.generateNorm(norm_net, "textures/processing/upscaled", "textures/processing/normaldx")
+    normals.generateNorm(norm_net, "textures/processing/diffuse", "textures/processing/normaldx")
     for x in tqdm(os.listdir(f"textures/processing/normaldx/"), desc="Generating..."):
         if x.endswith(".png"):
             LightspeedOctahedralConverter.convert_dx_file_to_octahedral(f"textures/processing/normaldx/{x}",
@@ -503,7 +484,6 @@ def generate_pbr_ai():
     torch.cuda.empty_cache()
     gc.collect()
 
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     PATH_CHK = "ai/PBR/checkpoints/Roughness/latest_net_G.pth"
 
     norm_net = PBR().to(device)
@@ -517,10 +497,10 @@ def generate_pbr_ai():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     PATH_CHK = "ai/PBR/checkpoints/disp/disp_net_last.pth"
 
-    norm_net = Unet().to(device)
+    norm_net = OLDPBR().to(device)
     checkpoint = torch.load(PATH_CHK)
     norm_net.load_state_dict(checkpoint["model"])
 
-    displacements.generateDisp(norm_net, "textures/processing/upscaled", "textures/processing/displacements")
+    displacements.generateDisp(norm_net, "textures/processing/diffuse", "textures/processing/displacements")
 
     return "Global AI PBR generation is done!"

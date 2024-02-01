@@ -69,7 +69,7 @@ def generateDisp(net, DIR_FROM, DIR_EVAL):
     # print(batch_size)
     testloader = DataLoader(data_test, batch_size=1, shuffle=False)
 
-    print("\nOutput disp files...")
+    print("\nProcessing displacement files...")
 
     net.eval()
     with torch.no_grad():
@@ -118,9 +118,9 @@ def generateDispSingle(net, DIR_FROM, DIR_EVAL):
 
 
 if __name__ == "__main__":
-    from model import Unet
+    from model import OLDPBR
 
-    norm_net = Unet().to(device)
+    norm_net = OLDPBR().to(device)
     checkpoint = torch.load(PATH_CHK)
     norm_net.load_state_dict(checkpoint["model"])
 
