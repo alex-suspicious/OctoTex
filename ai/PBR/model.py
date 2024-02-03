@@ -69,7 +69,7 @@ class PBR(nn.Module):
         :param output_nc: number of output channels
         :param batch_norm: use batch norm
         """
-        ngf = 64
+        ngf = 32
         input_nc = 3
         output_nc = 3
         super(PBR, self).__init__()

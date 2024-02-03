@@ -14,9 +14,10 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 PATH_CHK = "checkpoints/Roughness/latest_net_G.pth"
 
 transformDoNotResize = transforms.Compose([
+    transforms.Resize(2048),
     transforms.ToTensor(),
-    transforms.Normalize(mean=0.95,
-                         std=0.95)
+    transforms.Normalize(mean=0.5,
+                         std=0.5)
     # outputs range from -1 to 1
 ])
 
@@ -120,4 +121,4 @@ if __name__ == "__main__":
     # Set the model to evaluation mode (e.g., for batch normalization and dropout)
     model.eval()
 
-    generateRough(model, "textures", "out")
+    generateRough(model, "./textures", "./out")
