@@ -15,7 +15,7 @@ You can download mixture of PBR models
 Put the old models to the
   1. OctoTex/ai/PBR/checkpoints/disp
   2. OctoTex/ai/PBR/checkpoints/norm
-  3. OctoTex/ai/PBR/checkpoints/rough
+  3. OctoTex/ai/PBR/checkpoints/Roughness
 Folders!
 
 
