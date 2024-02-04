@@ -116,4 +116,4 @@ if __name__ == "__main__":
     # Set the model to evaluation mode (e.g., for batch normalization and dropout)
     model.eval()
 
-    generateRough(model, "./textures", "./out")
+    generateRough(model, "../../textures/processing/diffuse", "./out")
