@@ -1,21 +1,37 @@
-import glob
-import os
-
 import torch
-from PIL import Image, ImageEnhance, ImageFilter
+from torchvision import transforms
 from torch.utils.data import DataLoader
 from torch.utils.data import Dataset
-from torchvision import transforms
 from torchvision.utils import save_image
+
+import os
+import glob
+import numpy as np
+from tqdm import tqdm
+from time import sleep
+from PIL import Image
+import matplotlib.pyplot as plt
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # %%
-PATH_CHK = "checkpoints/Normal/latest_net_G.pth"
+PATH_CHK = "checkpoints/norm/norm_net_last.pth"
+CROP = 1024
+
+# %%
+transform = transforms.Compose([
+    transforms.Resize(CROP),
+    transforms.CenterCrop(CROP),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))  # (input - mean) / std
+    # outputs range from -1 to 1
+])
 
 transformDoNotResize = transforms.Compose([
+    # transforms.Resize(CROP),
+    # transforms.CenterCrop(CROP),
     transforms.ToTensor(),
-    transforms.Resize((1024,1024))
+    transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))  # (input - mean) / std
     # outputs range from -1 to 1
 ])
 
@@ -37,8 +53,10 @@ class TestDataset(Dataset):
         img = Image.open(self.file_list[i]).convert('RGB')
         h, w = img.size
 
-        img = transformDoNotResize(img)
-
+        if (w < 256 or h < 256 or w - 300 > h or h - 300 > w or w > 1024 or h > 1024):
+            img = transform(img)
+        else:
+            img = transformDoNotResize(img)
         return img, self.names[i]
 
 
@@ -52,7 +70,7 @@ def generateNorm(net, DIR_FROM, DIR_EVAL):
     # print(batch_size)
     testloader = DataLoader(data_test, batch_size=1, shuffle=False)
 
-    print("\nProcessing norm files...")
+    print("\nOutput disp files...")
 
     net.eval()
     with torch.no_grad():
@@ -63,15 +81,6 @@ def generateNorm(net, DIR_FROM, DIR_EVAL):
 
             img_out_filename = os.path.join(output_normal, f"{data[1][0]}_normal.png")
             save_image(img_out, img_out_filename, value_range=(-1, 1), normalize=True)
-
-            im = Image.open(img_out_filename).convert("RGB")
-
-            cont = ImageEnhance.Contrast(im)
-
-            factor = 1.5
-            im_output = cont.enhance(factor)
-            im_output = im_output.filter(ImageFilter.GaussianBlur(1))
-            im_output.save(img_out_filename)
 
     print("Done!")
 
@@ -85,7 +94,7 @@ def generateNormSingle(net, DIR_FROM, DIR_EVAL):
     # print(batch_size)
     testloader = DataLoader(data_test, batch_size=1, shuffle=False)
 
-    print("\nProcessing norm files...")
+    print("\nOutput disp files...")
 
     net.eval()
     with torch.no_grad():
@@ -97,26 +106,14 @@ def generateNormSingle(net, DIR_FROM, DIR_EVAL):
             img_out_filename = os.path.join(output_normal, f"{data[1][0]}_normal.png")
             save_image(img_out, img_out_filename, value_range=(-1, 1), normalize=True)
 
-            im = Image.open(img_out_filename).convert("L")
-            enhancer = ImageEnhance.Contrast(im)
-
-            factor = 1.1
-            im_output = enhancer.enhance(factor)
-            im_output.save(img_out_filename)
-
     print("Done!")
 
 
 if __name__ == "__main__":
-    from model import PBR
+    from model import OLDPBR
 
-    # Define the model
-    model = PBR().cuda()
+    norm_net = OLDPBR().to(device)
+    checkpoint = torch.load(PATH_CHK)
+    norm_net.load_state_dict(checkpoint["model"])
 
-    # Load the trained model weights
-    model.load_state_dict(torch.load('./checkpoints/Normal/latest_net_G.pth'))
-
-    # Set the model to evaluation mode (e.g., for batch normalization and dropout)
-    model.eval()
-
-    generateNorm(model, "textures", "out")
+    generateNormSingle(norm_net, "textures/sc2rdefa_1K.png", "out")
