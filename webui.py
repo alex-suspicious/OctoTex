@@ -8,6 +8,7 @@ from PIL import Image
 from aiohttp import web
 import functions
 import plugins
+
 sys.path.append('nvidia')
 import webbrowser
 import io
