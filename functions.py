@@ -282,7 +282,7 @@ def ai_unbake_single(texture):
 def ai_roughness_single(texture):
     textureUpscaled = os.path.exists(f"textures/processing/diffuse/{texture}.png")
     path = f"textures/processing/diffuse/{texture}.png"
-    if (textureUpscaled):
+    if textureUpscaled:
         path = f"textures/processing/diffuse/{texture}.png"
 
     import gc
@@ -490,7 +490,7 @@ def generate_pbr_ai():
     checkpoint = torch.load(PATH_CHK)
     norm_net.load_state_dict(checkpoint)
 
-    roughness.generateRough(norm_net, "textures/processing/upscaled", "textures/processing/roughness")
+    roughness.generateRough(norm_net, "textures/processing/diffuse", "textures/processing/roughness")
     torch.cuda.empty_cache()
     gc.collect()
 
