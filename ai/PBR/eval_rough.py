@@ -16,7 +16,7 @@ PATH_CHK = "checkpoints/Roughness/latest_net_G.pth"
 transformDoNotResize = transforms.Compose([
     transforms.Resize(2048),
     transforms.ToTensor(),
-    transforms.Normalize(0.5,0.5)
+    transforms.Normalize(0.5, 0.5)
     # outputs range from -1 to 1
 ])
 

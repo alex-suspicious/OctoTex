@@ -1,16 +1,12 @@
+import glob
+import os
+
 import torch
-from torchvision import transforms
+from PIL import Image
 from torch.utils.data import DataLoader
 from torch.utils.data import Dataset
+from torchvision import transforms
 from torchvision.utils import save_image
-
-import os
-import glob
-import numpy as np
-from tqdm import tqdm
-from time import sleep
-from PIL import Image
-import matplotlib.pyplot as plt
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -53,7 +49,7 @@ class TestDataset(Dataset):
         img = Image.open(self.file_list[i]).convert('RGB')
         h, w = img.size
 
-        if (w < 256 or h < 256 or w - 300 > h or h - 300 > w or w > 1024 or h > 1024):
+        if w < 256 or h < 256 or w - 300 > h or h - 300 > w or w > 1024 or h > 1024:
             img = transform(img)
         else:
             img = transformDoNotResize(img)

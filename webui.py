@@ -1,22 +1,17 @@
 # import webview
-import os
-
 import asyncio
-import plugins
+import inspect
+import os
+import sys
+
+from PIL import Image
+from aiohttp import web
 import functions
 import plugins
-from aiohttp import web
-
-import sys
-from PIL import Image, ImageEnhance
-import json
-import inspect
-
 sys.path.append('nvidia')
-
-from octahedral import *
 import webbrowser
 import io
+from octahedral import *
 
 default_material = """@opaque
 displace_in = 0.05
@@ -26,34 +21,12 @@ ior_constant = 0
 metallic_constant = 0
 emissive_intensity = 0"""
 
-req_types = {
-    "html": "text/html",
-    "ini": "text/html",
-    "json": "application/javascript",
-    "png": "image/*",
-    "js": "application/javascript",
-    "css": "text/css",
-    "woff2": "application/x-font-woff2",
-    "jpg": "image/*",
-    "jpeg": "image/*",
-    "ttf": "application/octet-stream",
-    "ico": "image/x-icon",
-    "hdr": "image/vnd.radiance"
-}
+req_types = {"html": "text/html", "ini": "text/html", "json": "application/javascript", "png": "image/*",
+             "js": "application/javascript", "css": "text/css", "woff2": "application/x-font-woff2", "jpg": "image/*",
+             "jpeg": "image/*", "ttf": "application/octet-stream", "ico": "image/x-icon", "hdr": "image/vnd.radiance"}
 
-cache_types = {
-    "html": False,
-    "json": False,
-    "png": False,
-    "js": False,
-    "css": False,
-    "woff2": True,
-    "jpg": False,
-    "jpeg": False,
-    "ttf": True,
-    "ico": True,
-    "hdr": True
-}
+cache_types = {"html": False, "json": False, "png": False, "js": False, "css": False, "woff2": True, "jpg": False,
+               "jpeg": False, "ttf": True, "ico": True, "hdr": True}
 
 neededDirectories = ["materials", "webui/textures/temp"]
 
@@ -67,7 +40,7 @@ def callback(request):
     func_name = str(request).split("/")[2]
     func_name = func_name.replace(" >", "")
 
-    if (func_name in plugins.functions and "." in func_name):
+    if func_name in plugins.functions and "." in func_name:
         func_done = plugins.functions[func_name]
     else:
         func_done = getattr(functions, func_name)
@@ -206,8 +179,7 @@ async def processing_routing(request):
             f.write(default_material)
             f.close()
         except Exception as e:
-            pass
-        # print( str(e) )
+            pass  # print( str(e) )
 
     downscale = False
     if ("thumbnail" in requestNew):
