@@ -16,8 +16,7 @@ PATH_CHK = "checkpoints/Roughness/latest_net_G.pth"
 transformDoNotResize = transforms.Compose([
     transforms.Resize(2048),
     transforms.ToTensor(),
-    transforms.Normalize(mean=0.5,
-                         std=0.5)
+    transforms.Normalize(0.5,0.5)
     # outputs range from -1 to 1
 ])
 
@@ -68,11 +67,7 @@ def generateRough(net, DIR_FROM, DIR_EVAL):
 
             im = Image.open(img_out_filename).convert("L")
 
-            cont = ImageEnhance.Contrast(im)
-
-            factor = 1.5
-            im_output = cont.enhance(factor)
-            im_output = im_output.filter(ImageFilter.GaussianBlur(1))
+            im_output = im.filter(ImageFilter.GaussianBlur(1))
             im_output.save(img_out_filename)
 
     print("Done!")
@@ -110,10 +105,10 @@ def generateRoughSingle(net, DIR_FROM, DIR_EVAL):
 
 
 if __name__ == "__main__":
-    from model import PBR
+    from model import OLDPBR
 
     # Define the model
-    model = PBR().cuda()
+    model = OLDPBR().cuda()
 
     # Load the trained model weights
     model.load_state_dict(torch.load('./checkpoints/Roughness/latest_net_G.pth'))
