@@ -11,7 +11,7 @@ This tool allows you to load captured textures from rtx remix, convert them to p
 
 ## AI PBR Models
 You can download mixture of PBR models
-<a href="https://drive.google.com/file/d/1BsKeuFcdgMDxeTPq1jQAdc8FtXMLW-ea/view?usp=drivesdk" >here</a>
+<a href="https://drive.google.com/file/d/1BsKeuFcdgMDxeTPq1jQAdc8FtXMLW-ea/view?usp=sharing" >here</a>
 Put the old models to the
   1. OctoTex/ai/PBR/checkpoints/disp
   2. OctoTex/ai/PBR/checkpoints/norm
