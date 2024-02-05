@@ -13,7 +13,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # %%
 PATH_CHK = "checkpoints/Roughness/latest_net_G.pth"
 
-transformDoNotResize = transforms.Compose([
+transformResize = transforms.Compose([
     transforms.Resize(2048),
     transforms.ToTensor(),
     transforms.Normalize(0.5, 0.5)
@@ -38,7 +38,7 @@ class TestDataset(Dataset):
         img = Image.open(self.file_list[i]).convert('RGB')
         h, w = img.size
 
-        img = transformDoNotResize(img)
+        img = transformResize(img)
 
         return img, self.names[i]
 
