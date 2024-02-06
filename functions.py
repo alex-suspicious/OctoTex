@@ -486,7 +486,7 @@ def generate_pbr_ai():
 
     PATH_CHK = "ai/PBR/checkpoints/Roughness/latest_net_G.pth"
 
-    norm_net = OLDPBR().to(device)
+    norm_net = OLDPBR().to(device).half()
     checkpoint = torch.load(PATH_CHK)
     norm_net.load_state_dict(checkpoint)
 
