@@ -1,18 +1,16 @@
 # import webview
 import asyncio
 import inspect
+import io
 import os
-import sys
+import webbrowser
 
 from PIL import Image
 from aiohttp import web
+
 import functions
 import plugins
-
-sys.path.append('nvidia')
-import webbrowser
-import io
-from octahedral import *
+from nvidia.octahedral import LightspeedOctahedralConverter
 
 default_material = """@opaque
 displace_in = 0.05
