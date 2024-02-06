@@ -58,7 +58,7 @@ def generateRough(net, DIR_FROM, DIR_EVAL):
     net.eval()
     with torch.no_grad():
         for idx, data in enumerate(testloader):
-            img_in = data[0].to(device)
+            img_in = data[0].to(device).half()
             img_out = net(img_in)
             # print(img_name)
 
@@ -67,7 +67,11 @@ def generateRough(net, DIR_FROM, DIR_EVAL):
 
             im = Image.open(img_out_filename).convert("L")
 
-            im_output = im.filter(ImageFilter.GaussianBlur(1))
+            im_output = im.filter(ImageFilter.GaussianBlur(2))
+            enhancer = ImageEnhance.Contrast(im_output)
+
+            factor = 2
+            im_output = enhancer.enhance(factor)
             im_output.save(img_out_filename)
 
     print("Done!")
@@ -108,7 +112,7 @@ if __name__ == "__main__":
     from model import OLDPBR
 
     # Define the model
-    model = OLDPBR().cuda()
+    model = OLDPBR().cuda().half()
 
     # Load the trained model weights
     model.load_state_dict(torch.load('./checkpoints/Roughness/latest_net_G.pth'))
