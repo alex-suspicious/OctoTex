@@ -52,7 +52,7 @@ def callback(request):
 
     # param_keys = list( normal_params.keys() )
 
-    func_params = inspect.signature(func_done);
+    func_params = inspect.signature(func_done)
     func_param_names = [param.name for param in func_params.parameters.values()]
 
     for x in range(len(func_param_names)):
