@@ -291,7 +291,7 @@ def ai_roughness_single(texture):
     gc.collect()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    PATH_CHK = "ai/PBR/checkpoints/Roughness/rough_net_last.pth"
+    PATH_CHK = "ai/PBR/checkpoints/Roughness/latest_net_G.pth"
 
     norm_net = OLDPBR().to(device)
     checkpoint = torch.load(PATH_CHK)
