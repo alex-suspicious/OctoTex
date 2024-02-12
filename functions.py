@@ -302,10 +302,7 @@ def ai_roughness_single(texture):
 
 
 def ai_parallax_single(texture):
-    textureUpscaled = os.path.exists(f"textures/processing/diffuse/{texture}.png")
-    path = f"textures/processing/diffuse/{texture}.png"
-    if (textureUpscaled):
-        path = f"textures/processing/diffuse/{texture}.png"
+    path = f"textures/processing/normaldx/{texture}.png"
 
     import gc
     import torch
@@ -313,11 +310,11 @@ def ai_parallax_single(texture):
     gc.collect()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    PATH_CHK = "ai/PBR/checkpoints/disp/disp_net_last.pth"
+    PATH_CHK = "ai/PBR/checkpoints/Displacement/latest_net_G.pth"
 
     norm_net = OLDPBR().to(device)
     checkpoint = torch.load(PATH_CHK)
-    norm_net.load_state_dict(checkpoint["model"])
+    norm_net.load_state_dict(checkpoint)
 
     displacements.generateDispSingle(norm_net, path, "textures/processing/displacements")
     return "Displacement map is done!"
@@ -356,7 +353,7 @@ def upscale_single8(texture):
 
         print("Upscaling First time")
 
-        if ("Real" in config.upscale_model):
+        if "Real" in config.upscale_model:
             ai.RealESRGAN.upscaler.upscaleFile(texture)
         else:
             ai.ESRGAN.upscaler.upscaleFile(texture)
@@ -369,7 +366,7 @@ def upscale_single8(texture):
         shutil.move(f"textures/processing/diffuse/{texture}.png", f"textures/processing/diffuse/{texture}.png")
 
         print("Upscaling second time")
-        if ("Real" in config.upscale_model):
+        if "Real" in config.upscale_model:
             ai.RealESRGAN.upscaler.upscaleFile(texture)
         else:
             ai.ESRGAN.upscaler.upscaleFile(texture)
@@ -469,11 +466,11 @@ def generate_pbr_ai():
     gc.collect()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    PATH_CHK = "ai/PBR/checkpoints/norm/norm_net_last.pth"
+    PATH_CHK = "ai/PBR/checkpoints/Normal/latest_net_G.pth"
 
-    norm_net = OLDPBR().to(device)
+    norm_net = OLDPBR().to(device).half()
     checkpoint = torch.load(PATH_CHK)
-    norm_net.load_state_dict(checkpoint["model"])
+    norm_net.load_state_dict(checkpoint)
 
     normals.generateNorm(norm_net, "textures/processing/diffuse", "textures/processing/normaldx")
     for x in tqdm(os.listdir(f"textures/processing/normaldx/"), desc="Generating..."):
@@ -495,12 +492,12 @@ def generate_pbr_ai():
     gc.collect()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    PATH_CHK = "ai/PBR/checkpoints/disp/disp_net_last.pth"
+    PATH_CHK = "ai/PBR/checkpoints/Displacement/latest_net_G.pth"
 
-    norm_net = OLDPBR().to(device)
+    norm_net = OLDPBR().to(device).half()
     checkpoint = torch.load(PATH_CHK)
-    norm_net.load_state_dict(checkpoint["model"])
+    norm_net.load_state_dict(checkpoint)
 
-    displacements.generateDisp(norm_net, "textures/processing/diffuse", "textures/processing/displacements")
+    displacements.generateDisp(norm_net, "textures/processing/normaldx", "textures/processing/displacements")
 
     return "Global AI PBR generation is done!"

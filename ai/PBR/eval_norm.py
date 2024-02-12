@@ -19,7 +19,7 @@ transform = transforms.Compose([
     transforms.Resize(CROP),
     transforms.CenterCrop(CROP),
     transforms.ToTensor(),
-    transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))  # (input - mean) / std
+    transforms.Normalize(0.45, 0.5)
     # outputs range from -1 to 1
 ])
 
@@ -27,7 +27,7 @@ transformDoNotResize = transforms.Compose([
     # transforms.Resize(CROP),
     # transforms.CenterCrop(CROP),
     transforms.ToTensor(),
-    transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))  # (input - mean) / std
+    transforms.Normalize(0.45, 0.5)
     # outputs range from -1 to 1
 ])
 
@@ -66,7 +66,7 @@ def generateNorm(net, DIR_FROM, DIR_EVAL):
     # print(batch_size)
     testloader = DataLoader(data_test, batch_size=1, shuffle=False)
 
-    print("\nOutput disp files...")
+    print("\nProcessing normal files...")
 
     net.eval()
     with torch.no_grad():

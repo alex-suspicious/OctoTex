@@ -103,6 +103,7 @@ def generateRoughSingle(net, DIR_FROM, DIR_EVAL):
 
             factor = 1.1
             im_output = enhancer.enhance(factor)
+            im_output = im_output.filter(ImageFilter.GaussianBlur(1))
             im_output.save(img_out_filename)
 
     print("Done!")

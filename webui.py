@@ -64,18 +64,11 @@ try:
 except Exception as e:
 	result = "Error: " + str(e)
 	"""
-    # print(code)
     env = globals()
     envl = locals()
 
     exec(code, env, envl)
     result = envl['result']
-    # print( result )
-    # print(f"\n\n\n\n{result}\n\n\n\n\n")
-    # if( "texture" in params ):
-    #	result = func_done( params["texture"] )
-    # else:
-    #	result = func_done()
 
     return web.Response(text=result)
 
@@ -172,7 +165,7 @@ async def processing_routing(request):
     path = f"materials/" + requestNew.split("/")[-1].replace(".png", ".mat")
     # print(path)
     exists = os.path.exists(path)
-    if (not exists):
+    if not exists:
         try:
             f = open(path, "w", encoding="utf8")
             f.write(default_material)
@@ -181,11 +174,11 @@ async def processing_routing(request):
             pass  # print( str(e) )
 
     downscale = False
-    if ("thumbnail" in requestNew):
+    if "thumbnail" in requestNew:
         downscale = True
 
-    if ("image" in reqType or "octet" in reqType or "woff2" in reqType):
-        if (downscale):
+    if "image" in reqType or "octet" in reqType or "woff2" in reqType:
+        if downscale:
             requestNew = requestNew.replace("thumbnail", "upscaled")
 
             try:
