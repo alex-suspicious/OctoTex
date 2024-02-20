@@ -22,6 +22,7 @@ CROP = 1024
 transform = transforms.Compose([
     transforms.Resize(CROP),
     transforms.CenterCrop(CROP),
+    transforms.Grayscale(),
     transforms.ToTensor(),
     transforms.Normalize(0.5, 0.5)
     # outputs range from -1 to 1
@@ -30,6 +31,7 @@ transform = transforms.Compose([
 transformDoNotResize = transforms.Compose([
     # transforms.Resize(CROP),
     # transforms.CenterCrop(CROP),
+    transforms.Grayscale(),
     transforms.ToTensor(),
     transforms.Normalize(0.5, 0.5)
     # outputs range from -1 to 1
@@ -111,7 +113,7 @@ def generateDispSingle(net, DIR_FROM, DIR_EVAL):
         for idx, data in enumerate(testloader):
             img_in = data[0].to(device)
             img_out = net(img_in)
-            name = data[1][0].replace("normal", "disp")
+            name = f"{data[1][0]}_disp"
 
             img_out_filename = os.path.join(output_normal, f"{name}.png")
             save_image(img_out, img_out_filename, value_range=(-1, 1), normalize=True)
@@ -128,7 +130,7 @@ if __name__ == "__main__":
     from model import OLDPBR
 
     # Define the model
-    model = OLDPBR().cuda().half()
+    model = OLDPBR(64,1).cuda().half()
 
     # Load the trained model weights
     model.load_state_dict(torch.load('./checkpoints/Displacement/latest_net_G.pth'))

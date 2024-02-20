@@ -15,6 +15,7 @@ PATH_CHK = "checkpoints/Roughness/latest_net_G.pth"
 
 transformResize = transforms.Compose([
     transforms.Resize(2048),
+    transforms.Grayscale(),
     transforms.ToTensor(),
     transforms.Normalize(0.5, 0.5)
     # outputs range from -1 to 1
@@ -113,7 +114,7 @@ if __name__ == "__main__":
     from model import OLDPBR
 
     # Define the model
-    model = OLDPBR().cuda().half()
+    model = OLDPBR(64, 1).cuda().half()
 
     # Load the trained model weights
     model.load_state_dict(torch.load('./checkpoints/Roughness/latest_net_G.pth'))

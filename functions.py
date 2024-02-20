@@ -494,10 +494,10 @@ def generate_pbr_ai():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     PATH_CHK = "ai/PBR/checkpoints/Displacement/latest_net_G.pth"
 
-    norm_net = OLDPBR().to(device).half()
+    norm_net = OLDPBR(64,1).to(device).half()
     checkpoint = torch.load(PATH_CHK)
     norm_net.load_state_dict(checkpoint)
 
-    displacements.generateDisp(norm_net, "textures/processing/normaldx", "textures/processing/displacements")
+    displacements.generateDisp(norm_net, "textures/processing/diffuse", "textures/processing/displacements")
 
     return "Global AI PBR generation is done!"

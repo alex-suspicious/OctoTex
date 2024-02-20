@@ -2,15 +2,11 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-
 
 class OLDPBR(nn.Module):
-    def __init__(self, d=64, out_channels=3):
+    def __init__(self, d=64, ch=3):
         super(OLDPBR, self).__init__()
-        self.conv1 = nn.Conv2d(3, d, 4, 2, 1)
+        self.conv1 = nn.Conv2d(ch, d, 4, 2, 1)
         self.conv2 = nn.Conv2d(d, d * 2, 4, 2, 1)
         self.conv2_bn = nn.BatchNorm2d(d * 2)
         self.conv3 = nn.Conv2d(d * 2, d * 4, 4, 2, 1)
@@ -40,7 +36,7 @@ class OLDPBR(nn.Module):
         self.deconv7 = nn.ConvTranspose2d(d * 2 * 2, d, 4, 2, 1)
         self.deconv7_bn = nn.BatchNorm2d(d)
         self.deconv8 = nn.Sequential(
-            nn.ConvTranspose2d(d * 2, out_channels, 4, 2, 1),
+            nn.ConvTranspose2d(d * 2, ch, 4, 2, 1),
             nn.Tanh()
         )
 
