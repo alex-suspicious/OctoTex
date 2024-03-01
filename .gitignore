@@ -9,3 +9,6 @@ logs
 
 __pycache__/
 ai/pbr/checkpoints/*
+/ai/PBR/checkpoints/
+/ai/PBR/data/
+/ai/PBR/train.py

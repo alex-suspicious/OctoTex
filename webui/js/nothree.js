@@ -84,7 +84,7 @@ function updateList() {
 		for (var i = 0; i < list.length; i++) {
 	  		$(".textures-list").append(
 	  			`<button class="col-4 load-texture" name="`+list[i].split(".")[0]+`">
-	  				<img src="/processing/upscaled/`+list[i]+`" >
+	  				<img src="/processing/diffuse/`+list[i]+`" >
 	  				<p>` + list[i].split(".")[0] + `</p>
 	  			</button>`
 	  		);
